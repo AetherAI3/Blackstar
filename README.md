@@ -1,28 +1,52 @@
-<div align="center">
+<p align="center">
+  <a href="https://aetherai3.github.io/Blackstar/">
+    <img src="./assets/black-star-logo.svg" alt="Black Star Entertainment" width="420">
+  </a>
+</p>
 
-# ★ Black Star Entertainment
+<p align="center"><strong>Where Talent Meets Empire</strong><br>Independent creative & digital agency.</p>
 
-**Where Talent Meets Empire**
-
-Marketing, content creation, brand strategy, and digital experiences.
-
-[View Website](https://aetherai3.github.io/Blackstar/) · [Explore the Code](https://github.com/AetherAI3/Blackstar) · [Report an Issue](https://github.com/AetherAI3/Blackstar/issues)
-
-</div>
+<p align="center">
+  <a href="https://aetherai3.github.io/Blackstar/"><img src="https://img.shields.io/badge/EXPLORE_THE_SITE-D6BA78?style=for-the-badge&logo=github&logoColor=0A0A0B" alt="Explore the site"></a>
+  <a href="https://github.com/AetherAI3/Blackstar/actions/workflows/pages.yml"><img src="https://img.shields.io/github/actions/workflow/status/AetherAI3/Blackstar/pages.yml?style=for-the-badge&label=DEPLOY&color=D6BA78" alt="GitHub Pages deployment status"></a>
+</p>
 
 ---
 
-## The website
+## Your next move. Made real.
 
-A responsive static landing page based on the supplied Black Star Entertainment HTML, with a black-and-gold theme, starfield hero, services, company introduction, team profiles, selected projects, and a contact form.
+Black Star brings creative production and software engineering together. We work directly with founders, creators, and businesses on websites, brands, cinematic content, and AI automation — from a focused freelance project to support for a broader launch.
 
-- Responsive navigation with a mobile menu.
-- Filterable portfolio with external project links.
-- Keyboard focus states and reduced-motion support.
-- Email inquiries through the visitor's email application.
-- Plain HTML, CSS, and JavaScript — no build step or package installation.
+### What we do
 
-## Preview locally
+| Creative | Digital |
+| --- | --- |
+| Brand identity & design | Websites & web apps |
+| Photography & video | AI agents & automation |
+| Social content & management | Marketing & launch support |
+
+### The people behind the work
+
+| Founder | Focus | Find us |
+| --- | --- | --- |
+| **Edwin D.** · Co-Founder & Creative Director | Photography, video, brand direction | [@5.0win](https://instagram.com/5.0win) · [East Coast Chromes](https://eastcoastchromes.com) |
+| **Brandon B.** · Co-Founder & Lead Engineer | Full-stack software, AI agents, connected systems | [@zo.trades2](https://instagram.com/zo.trades2) · [Aether AI](https://aethersystems.net) |
+
+### Explore our work & ventures
+
+[**Aether AI ↗**](https://aethersystems.net) — AI tools, developer infrastructure, and software.  
+[**East Coast Chromes ↗**](https://eastcoastchromes.com) — Automotive photography and cinematic media.  
+[**Food Trackers ↗**](https://foodtrackers.org) — Meal planning, macros, and calorie tracking.
+
+---
+
+### Website
+
+A static site with the supplied Black Star logo, a responsive layout, six service cards that stack as you scroll on desktop, project previews, portfolio filters, founder links, and an email-draft inquiry flow. Reduced-motion preferences and keyboard navigation are supported.
+
+**[Read the agency & website specification](docs/BLACK-STAR-AGENCY-SPEC.md)** · [Verification record](docs/VERIFICATION.md) · [Asset provenance](assets/README.md)
+
+Run locally:
 
 ```bash
 git clone https://github.com/AetherAI3/Blackstar.git
@@ -30,27 +54,19 @@ cd Blackstar
 python3 -m http.server 8080
 ```
 
-Open http://localhost:8080. Opening `index.html` directly also works.
+Open `http://localhost:8080`. No build step or package installation is required.
 
-## GitHub Pages
-
-In **Settings → Pages**, select **Deploy from a branch**, then **main** and **/ (root)**, and save. GitHub's built-in Pages deployment publishes updates from `main` automatically. `.nojekyll` keeps the site buildless.
-
-Website address once Pages is enabled and deployment completes:
-
-**https://aetherai3.github.io/Blackstar/**
-
-## Files
-
-| File | Purpose |
+| Path | Purpose |
 | --- | --- |
-| `index.html` | Page content and structure |
-| `styles.css` | Responsive layout and visual styling |
-| `script.js` | Navigation, project filtering, starfield, and email draft |
-| `.nojekyll` | Serve the static site without Jekyll processing |
+| `index.html` | Page content and navigation |
+| `styles.css` | Responsive design and scroll presentation |
+| `script.js` | Menu, filters, inquiry preparation, starfield |
+| `assets/` | Supplied logo and optimized project images |
+| `docs/` | Agency specification and verification notes |
+| `.github/workflows/pages.yml` | Deploy the static site to GitHub Pages |
 
-## Content and contact setup
+### Deployment and contact
 
-The contact form opens a draft addressed to `hello@blackstarentertainment.com`; it does not send or store submissions. Confirm this supplied address is monitored before directing customer inquiries here. For server-side delivery, connect an approved form service and update the submit handler.
+Pushes to `main` run the existing Pages workflow and publish the site files and assets. Keep GitHub Pages enabled for this repository. Site: **https://aetherai3.github.io/Blackstar/**.
 
-The supplied company copy, metrics, project links, and imagery are retained. Review the `EST. 2018` label alongside the supplied `1 Year in Business` statistic, campaign totals, and LLC wording for accuracy. Google Fonts and portfolio imagery load from external hosts. Generic social-network homepage links were removed until real profile URLs are available.
+The inquiry form opens the visitor’s email app; it does not send or store messages. The supplied recipient is `hello@blackstarentertainment.com`. Confirm that mailbox is monitored before relying on email inquiries; both founders’ Instagram links remain available.
