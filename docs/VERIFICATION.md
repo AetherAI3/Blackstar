@@ -18,4 +18,19 @@ Date: September 10, 2026.
 
 ## Live verification
 
-The updated release is awaiting its deployment check and browser inspection. Results will be recorded after publication; this document does not yet claim those checks passed.
+Release commit: `1c13117856f709f58465859b9d44b995605ce926`.
+
+[Pages deployment #34426033901](https://github.com/AetherAI3/Blackstar/actions/runs/34426033901) completed successfully.
+
+- Live HTML, CSS, JavaScript, all three logo SVGs, and all three local project images returned HTTP 200.
+- Desktop browser review confirmed the supplied logo in the navigation and hero, the six service cards, and the three project previews.
+- Desktop scrolling confirmed the paired service rows stack below the fixed navigation. The leading row reached its 112px sticky position while the following row advanced normally.
+- Portfolio interactions: Web & technology displayed 2 projects; Content & media displayed 1; All work restored all 3. Visible count announcements matched.
+- The “Let’s talk automation” link navigated to the contact section and selected “AI agents & automation.” All other service-to-option mappings passed source inspection.
+- Native email input was observed as type email, required, and invalid while empty. No message was submitted and no external email application was launched.
+- Every project image loaded in the browser with a nonzero natural width. Desktop document width was 1348px within a 1363px window: no horizontal overflow in the checked view.
+- No site-domain errors were returned by the captured browser error-log filter. The browser extension emitted unrelated metadata errors.
+
+## Verification limits
+
+Mobile breakpoints, menu behavior, and reduced-motion handling were source-checked. The available browser interface did not expose viewport or reduced-motion emulation, so this record does not claim physical-device or emulated-mobile visual verification. A native mobile pass remains advisable before a paid campaign. Instagram account availability and mailbox delivery remain unverified; their supplied destinations are preserved.
