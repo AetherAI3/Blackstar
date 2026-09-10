@@ -11,8 +11,8 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="icon" type="image/svg+xml" href="assets/black-star-icon.svg">
 <link rel="preload" as="image" href="assets/black-star-aurora.webp">
-<link rel="stylesheet" href="styles.css?v=02caba4">
-<script src="script.js" defer></script>
+<link rel="stylesheet" href="styles.css?v=ambient-nav-1">
+<script src="script.js?v=ambient-nav-1" defer></script>
 <noscript><style>.contact-form{display:none}.portfolio-filters{display:none}</style></noscript>
 </head>
 <body>
@@ -23,12 +23,13 @@
 <button class="hamburger" id="hamburger" aria-controls="nav-menu" aria-expanded="false" aria-label="Open navigation"><span></span><span></span></button>
 <div class="nav-menu" id="nav-menu">
 <a href="#services">Services</a><a href="#portfolio">Our work</a><a href="#about">About</a><a href="#team">The team</a>
-<a href="#contact" class="nav-cta">Let’s build something <span aria-hidden="true">↗</span></a>
+<a href="#contact" class="nav-cta">Start a project <span aria-hidden="true">↗</span></a>
 </div>
 </nav>
 </header>
 <main id="main">
-<section id="hero" aria-labelledby="hero-title">
+<section id="hero" aria-labelledby="hero-title" data-ambient>
+<div class="ambient-field" aria-hidden="true"><div class="ambient-dots"></div><div class="ambient-glow"></div><div class="ambient-dots-lit"></div></div>
 <canvas id="starCanvas" aria-hidden="true"></canvas>
 <div class="hero-grid-overlay" aria-hidden="true"></div>
 <div class="container hero-layout">
@@ -59,7 +60,9 @@
 </svg>
 </div>
 </section>
-<section id="services" class="section" aria-labelledby="services-title">
+<section id="services" class="section" aria-labelledby="services-title" data-ambient>
+<div class="ambient-field" aria-hidden="true"><div class="ambient-dots"></div><div class="ambient-glow"></div><div class="ambient-dots-lit"></div></div>
+
 <div class="container">
 <div class="section-heading"><div><p class="eyebrow">01 / WHAT WE DO</p><h2 id="services-title">One team.<br><em>Six ways forward.</em></h2></div><p class="section-intro">Bring us a single project or the whole picture. We work directly with founders, creators, and businesses that need thoughtful creative and hands-on development.</p></div>
 <div class="services-stack"><div class="service-row" style="--row:0">
@@ -108,7 +111,8 @@
 <p class="services-note"><span class="small-star" aria-hidden="true">✦</span> A focused project. A new launch. Support as you grow. Let’s find the right fit.</p>
 </div>
 </section>
-<section id="portfolio" class="section" aria-labelledby="work-title">
+<section id="portfolio" class="section" aria-labelledby="work-title" data-ambient>
+<div class="ambient-field" aria-hidden="true"><div class="ambient-dots"></div><div class="ambient-glow"></div><div class="ambient-dots-lit"></div></div>
 <div class="container">
 <div class="section-heading"><div><p class="eyebrow">02 / OUR WORK & VENTURES</p><h2 id="work-title">Ideas you can<br><em>actually explore.</em></h2></div><p class="section-intro">A look at the businesses, platforms, and creative work behind the team. Open a project and see it for yourself.</p></div>
 <div class="portfolio-filters" role="group" aria-label="Filter projects"><button class="filter-btn active" data-filter="all" aria-pressed="true">All work</button><button class="filter-btn" data-filter="web" aria-pressed="false">Web & technology</button><button class="filter-btn" data-filter="content" aria-pressed="false">Content & media</button></div>
@@ -130,18 +134,21 @@
 <div class="content-callout"><div><p class="eyebrow">CONTENT THAT KEEPS MOVING</p><h3>From a single shoot to your next month of content.</h3><p>Photography, short-form video, and a clear plan for what to post next.</p></div><a href="#contact" class="text-link" data-service="social">Let’s plan your content <span aria-hidden="true">↗</span></a></div>
 </div>
 </section>
-<section id="about" class="section" aria-labelledby="about-title"><div class="container about-inner">
+<section id="about" class="section" aria-labelledby="about-title" data-ambient>
+<div class="ambient-field" aria-hidden="true"><div class="ambient-dots"></div><div class="ambient-glow"></div><div class="ambient-dots-lit"></div></div><div class="container about-inner">
 <div class="about-visual"><span class="eyebrow">ROOTED ON THE EAST COAST</span><img src="assets/black-star-original.svg" alt="Black Star Entertainment globe and wordmark" width="2048" height="2048" loading="lazy"><div class="about-caption"><span>CREATIVE VISION.</span><span>BUILT WITH INTENT.</span></div></div>
 <div class="about-content"><p class="eyebrow">03 / WHO WE ARE</p><h2 id="about-title">Small team.<br><em>Personal investment.</em></h2><p>Black Star brings creative production and software engineering together. We’re two founders in our 20s, building businesses and relationships up and down the East Coast, from Rhode Island to Florida.</p><p>Edwin brings the camera, the creative direction, and the eye for a brand. Brandon brings the code, the systems, and the technical execution. Together, we help turn an idea into a website, a launch, a body of content, or a better way to work.</p><p>You work directly with the people making it happen. We scope the work, keep you involved, and deliver something you can put to use.</p><div class="about-facts"><div><strong>02</strong><span>Founders, hands on</span></div><div><strong>01</strong><span>Connected creative & tech team</span></div></div><a href="#contact" class="text-link">Let’s talk about your project <span aria-hidden="true">↗</span></a></div>
 </div></section>
-<section id="team" class="section" aria-labelledby="team-title"><div class="container">
+<section id="team" class="section" aria-labelledby="team-title" data-ambient>
+<div class="ambient-field" aria-hidden="true"><div class="ambient-dots"></div><div class="ambient-glow"></div><div class="ambient-dots-lit"></div></div><div class="container">
 <div class="section-heading"><div><p class="eyebrow">04 / THE PEOPLE BEHIND THE WORK</p><h2 id="team-title">Meet your<br><em>creative partners.</em></h2></div><p class="section-intro">Different skill sets. Shared ambition. A direct line to the people building your next project.</p></div>
 <div class="team-grid">
 <article class="team-card" id="team-edwin"><div class="team-top"><div class="team-avatar avatar-edwin" aria-hidden="true">ED</div><div class="team-brand"><img src="assets/east-coast-chrome-logo.png" alt="East Coast Chrome" width="199" height="105" loading="lazy"><span class="team-index">01 / CREATIVE</span></div></div><h3>Edwin D.</h3><p class="team-role">Co-Founder & Creative Director</p><p class="team-description">Owner of East Coast Chromes. Photography, video production, brand direction, and content with an East Coast point of view.</p><div class="team-links"><a href="https://instagram.com/5.0win" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".8" fill="currentColor" stroke="none"/></svg> @5.0win <span aria-hidden="true">↗</span></a><a href="https://eastcoastchromes.com" target="_blank" rel="noopener noreferrer">East Coast Chromes <span aria-hidden="true">↗</span></a></div></article>
 <article class="team-card" id="team-brandon"><div class="team-top"><div class="team-avatar avatar-brandon" aria-hidden="true">BB</div><span class="team-index">02 / ENGINEERING</span></div><h3>Brandon B.</h3><p class="team-role">Co-Founder & Lead Engineer</p><p class="team-description">Founder of Aether AI. Full-stack development, AI agents, and connected systems that turn ambitious ideas into useful software.</p><div class="team-links"><a href="https://instagram.com/zo.trades2" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".8" fill="currentColor" stroke="none"/></svg> @zo.trades2 <span aria-hidden="true">↗</span></a><a href="https://aethersystems.net" target="_blank" rel="noopener noreferrer">Aether AI <span aria-hidden="true">↗</span></a></div></article>
 </div>
 </div></section>
-<section id="contact" class="section" aria-labelledby="contact-title"><div class="container contact-inner">
+<section id="contact" class="section" aria-labelledby="contact-title" data-ambient>
+<div class="ambient-field" aria-hidden="true"><div class="ambient-dots"></div><div class="ambient-glow"></div><div class="ambient-dots-lit"></div></div><div class="container contact-inner">
 <div class="contact-info"><p class="eyebrow">05 / LET’S MAKE IT HAPPEN</p><h2 id="contact-title">What are<br><em>you building?</em></h2><p class="contact-lead">A fresh website, a stronger brand, a film worth watching, or a workflow that finally works. Tell us where you want to go.</p><a class="contact-email" href="mailto:hello@blackstarentertainment.com">hello@blackstarentertainment.com <span aria-hidden="true">↗</span></a><p class="contact-location">East Coast roots. Remote collaboration.</p><div class="contact-socials"><a href="https://instagram.com/5.0win" target="_blank" rel="noopener noreferrer">Edwin / @5.0win ↗</a><a href="https://instagram.com/zo.trades2" target="_blank" rel="noopener noreferrer">Brandon / @zo.trades2 ↗</a></div><p class="contact-note">Have a brief? Great. Still figuring it out? Start there.</p></div>
 <form class="contact-form" id="contact-form"><div class="form-heading"><span>YOUR NEXT PROJECT</span><span aria-hidden="true">↗</span></div>
 <div class="form-row"><div class="form-group"><label for="name">Your name</label><input type="text" id="name" name="name" placeholder="First and last name" required autocomplete="name" maxlength="120"></div><div class="form-group"><label for="email">Email address</label><input type="email" id="email" name="email" placeholder="you@company.com" required autocomplete="email" maxlength="254"></div></div>
@@ -152,5 +159,5 @@
 </form>
 </div></section>
 </main>
-<footer id="footer"><div class="container"><div class="footer-inner"><a href="#hero" class="footer-brand" aria-label="Black Star Entertainment home"><img src="assets/black-star-logo.svg" alt="Black Star Entertainment" width="1299" height="544"><span>Where Talent Meets Empire</span></a><nav class="footer-nav" aria-label="Footer navigation"><a href="#services">Services</a><a href="#portfolio">Our work</a><a href="#team">The team</a><a href="#contact">Start a project</a></nav><div class="footer-socials"><a href="https://instagram.com/5.0win" target="_blank" rel="noopener noreferrer">@5.0win ↗</a><a href="https://instagram.com/zo.trades2" target="_blank" rel="noopener noreferrer">@zo.trades2 ↗</a></div></div><div class="footer-bottom"><p>© 2026 Black Star Entertainment. All rights reserved.</p><span>INDEPENDENT. BY DESIGN.</span><a href="#hero">Back to top ↑</a></div></div></footer>
+<footer id="footer" data-ambient><div class="ambient-field" aria-hidden="true"><div class="ambient-dots"></div><div class="ambient-glow"></div><div class="ambient-dots-lit"></div></div><div class="container"><div class="footer-inner"><a href="#hero" class="footer-brand" aria-label="Black Star Entertainment home"><img src="assets/black-star-logo.svg" alt="Black Star Entertainment" width="1299" height="544"><span>Where Talent Meets Empire</span></a><nav class="footer-nav" aria-label="Footer navigation"><a href="#services">Services</a><a href="#portfolio">Our work</a><a href="#team">The team</a><a href="#contact">Start a project</a></nav><div class="footer-socials"><a href="https://instagram.com/5.0win" target="_blank" rel="noopener noreferrer">@5.0win ↗</a><a href="https://instagram.com/zo.trades2" target="_blank" rel="noopener noreferrer">@zo.trades2 ↗</a></div></div><div class="footer-bottom"><p>© 2026 Black Star Entertainment. All rights reserved.</p><span>INDEPENDENT. BY DESIGN.</span><a href="#hero">Back to top ↑</a></div></div></footer>
 </body></html>

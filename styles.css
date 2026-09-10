@@ -36,3 +36,29 @@
 #contact{background:linear-gradient(90deg,#0a0a0bef 0%,#0a0a0bb8 45%,#0a0a0ba6),url("assets/black-star-aurora.webp") center bottom/cover}.contact-form{background:#141215f2;border-color:#d6ba7860}
 .team-brand{display:flex;flex-direction:column;align-items:flex-end;gap:10px}.team-brand img{width:115px;height:auto;border:1px solid #8134a338;border-radius:3px}.team-brand .team-index{font-size:9px}
 @media(max-width:680px){#hero{background-position:58% center;background-size:auto 100%}.hero-brand{background:#0a0a0bf5}.hero-bottom{font-size:10px}.content-callout{padding:28px 24px;background-image:linear-gradient(90deg,#0a0a0be0,#0a0a0b85),url("assets/black-star-aurora.webp")}.chrome-visual>img.chrome-project-logo{width:179px;height:auto;max-width:60%}.chrome-brand-note{top:calc(50% + 79px);font-size:8px;letter-spacing:1.25px}}
+
+/* A shared, restrained gold field. The hero retains its darker lighting. */
+[data-ambient]{position:relative;isolation:isolate;--glow-x:50%;--glow-y:45%;--ambient-strength:.65}
+#services{--ambient-strength:1}#hero{--ambient-strength:.25}#footer{--ambient-strength:.45}
+.ambient-field{position:absolute;inset:0;z-index:-1;pointer-events:none;overflow:hidden;opacity:var(--ambient-strength);background:radial-gradient(ellipse at 5% 40%,#d6ba7807,transparent 38%),radial-gradient(ellipse at 96% 72%,#b88b3707,transparent 35%);mask-image:linear-gradient(transparent,#000 12%,#000 89%,transparent)}
+.ambient-dots,.ambient-dots-lit{position:absolute;inset:0;background-size:34px 34px;background-position:center top}
+.ambient-dots{background-image:radial-gradient(circle,#d6ba7840 .85px,transparent 1.35px);opacity:.48}
+.ambient-glow{position:absolute;left:var(--glow-x);top:var(--glow-y);width:900px;height:900px;translate:-50% -50%;background:radial-gradient(circle,#f2d17c19 0%,#d6ae600f 25%,#ba883d06 47%,transparent 68%);opacity:0;transition:opacity .4s ease}
+.ambient-dots-lit{background-image:radial-gradient(circle,#ffe4a69e 1px,#d6ba781c 2.1px,transparent 4px);mask-image:radial-gradient(circle 400px at var(--glow-x) var(--glow-y),#000,transparent 85%);opacity:0;transition:opacity .4s ease}
+[data-ambient].glow-active>.ambient-field .ambient-glow,[data-ambient].glow-active>.ambient-field .ambient-dots-lit{opacity:1}
+@media(hover:hover) and (pointer:fine){#services .service-card:hover{border-color:#d6ba7880;box-shadow:0 -14px 32px #0a0a0b66,0 0 28px #d6ba780a}}
+@media(max-width:680px){.ambient-dots,.ambient-dots-lit{background-size:28px 28px}.ambient-dots{opacity:.35}}
+@media(prefers-reduced-motion:reduce),(hover:none),(pointer:coarse){.ambient-glow,.ambient-dots-lit{display:none}}
+
+/* Rounded controls and an uncluttered, accessible pill navigation. */
+.btn,.filter-btn,.hamburger{border-radius:999px}
+.nav-container{gap:24px}.nav-menu{gap:8px;font-size:13px}
+.nav-menu>a{display:inline-flex;align-items:center;justify-content:center;gap:13px;min-height:44px;padding:10px 17px;border:1px solid #ffffff18;border-radius:999px;background:#ffffff04;white-space:nowrap;transition:color .2s,background .2s,border-color .2s,box-shadow .2s}
+.nav-menu>a:not(.nav-cta){color:#c6c0ce}
+.nav-menu>a:hover,.nav-menu>a:focus-visible{color:#eee0b7;background:#d6ba780c;border-color:#d6ba785c;box-shadow:0 0 22px #d6ba7809}
+.nav-menu>a[aria-current="location"]{color:#ead29d;background:#d6ba7814;border-color:#d6ba7870}
+.nav-menu>a.nav-cta{padding:11px 20px;margin-left:8px;border-color:#d6ba7866;background:linear-gradient(120deg,#d6ba781a,#d6ba7808);color:#e9ddc1}
+.nav-menu>a.nav-cta:hover{background:#d6ba7824;border-color:#d6ba7899}
+.hamburger{align-items:center;justify-content:center;flex-direction:column;width:46px;height:46px;flex-shrink:0}
+@media(max-width:1100px){.nav-logo,.nav-logo img{width:146px;flex-basis:146px}.nav-menu>a{padding-inline:14px}.nav-menu>a.nav-cta{padding-inline:17px;margin-left:4px}}
+@media(max-width:960px){.nav-container{height:80px}.hamburger{display:flex}.nav-logo,.nav-logo img{width:140px;flex-basis:140px}.nav-menu{display:none;position:absolute;top:88px;left:20px;right:20px;padding:16px;background:#0d0c10f7;border:1px solid #d6ba782d;border-radius:22px;box-shadow:0 18px 45px #0008;font-size:15px;align-items:stretch;gap:9px;backdrop-filter:blur(18px)}.nav-menu.open{display:flex;flex-direction:column}.nav-menu>a{justify-content:flex-start;padding:13px 18px;min-height:48px}.nav-menu>a.nav-cta{justify-content:space-between;margin:4px 0 0;padding:13px 18px}html{scroll-padding-top:100px}}
