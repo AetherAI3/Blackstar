@@ -56,3 +56,11 @@ All nine pages now share four native disclosure dropdowns: Services, Our work, A
 The deterministic assistant is shared across all pages through `guide.js`. A service-page handoff reaches the home inquiry form with an allowlisted service query. On the home page, handoff preserves typed input. The assistant adds a process explanation path. It never opens automatically. After six seconds, a small gold exclamation badge and dismissible hint invite attention; the hint expires after twelve seconds. Session storage holds only a seen flag to prevent repeating the invitation in the same tab session. If storage is blocked, the experience remains usable, but suppression cannot persist between pages. Reduced-motion visitors receive a static cue. No chat transcript is stored.
 
 The shared markup lives in `scripts/project-guide.html`; generated navigation remains in `scripts/build-pages.py`. The workflow includes `guide.js` and checks its syntax.
+
+## Surface and motion refinement
+
+Numbered section labels, service counters, and project/team indices have been removed from public pages. Existing identity, project art, founder photographs, and social destinations remain intact. Service, project, team, about, and contact surfaces now use rounded corners and subdued gradient borders. The original about artwork feathers into its container.
+
+The about frame uses a CSS view-timeline where supported. Other cards and headings receive one brief entrance animation as they enter view; content is never hidden while waiting for JavaScript. Reduced-motion disables the movement, including when the preference changes during a visit.
+
+The contact section includes a code-native SVG sequence: website/computer, paper plane on a dotted route, rising building, and completion check. It plays once on entering view, lasts eight seconds, and settles into a static illustration. Reduced-motion visitors get the static sequence. Its accessible description identifies it as an illustrative project journey, not form submission status. It is independent of email-draft behavior and never claims an inquiry has been delivered.

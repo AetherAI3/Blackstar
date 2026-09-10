@@ -108,3 +108,41 @@ menu.addEventListener('keydown', event => {
 menu.querySelectorAll('a').forEach(link => link.addEventListener('click', () => closeDropdowns()));
 document.addEventListener('pointerdown', event => { if (!menu.contains(event.target)) closeDropdowns(); });
 desktopHover.addEventListener('change', () => closeDropdowns());
+
+// Scroll-triggered reveals enhance visible content; links never wait on animation.
+const motionPreference = window.matchMedia('(prefers-reduced-motion: reduce)');
+const revealTargets = [...document.querySelectorAll('.section-heading,.about-content,.about-visual,.service-card,.project-card,.team-card,.content-callout,.contact-form,.detail-card,.footer-invitation')];
+const runningReveals = new Set();
+if ('IntersectionObserver' in window) {
+  const revealObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      revealObserver.unobserve(entry.target);
+      if (motionPreference.matches) return;
+      if (entry.target.matches('.scroll-progress') && CSS.supports('animation-timeline: view()')) return;
+      const animation = entry.target.animate([
+        { opacity: .4, translate: '0 26px', scale: '.98' },
+        { opacity: 1, translate: '0 0', scale: '1' }
+      ], { duration: 700, easing: 'cubic-bezier(.2,.75,.2,1)' });
+      runningReveals.add(animation);
+      animation.finished.then(() => runningReveals.delete(animation)).catch(() => runningReveals.delete(animation));
+    });
+  }, { threshold: .08 });
+  revealTargets.forEach(target => revealObserver.observe(target));
+  const journey = document.querySelector('.contact-journey');
+  if (journey) {
+    const journeyObserver = new IntersectionObserver(entries => {
+      if (entries.some(entry => entry.isIntersecting)) {
+        if (!motionPreference.matches) journey.classList.add('journey-playing');
+        journeyObserver.disconnect();
+      }
+    }, { threshold: .5 });
+    journeyObserver.observe(journey);
+  }
+}
+motionPreference.addEventListener('change', () => {
+  if (motionPreference.matches) {
+    runningReveals.forEach(animation => animation.cancel()); runningReveals.clear();
+    document.querySelector('.contact-journey')?.classList.remove('journey-playing');
+  }
+});
