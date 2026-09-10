@@ -90,3 +90,18 @@ The next-stage plan defines Brandon’s ownership of web development, backend sy
 | [Visibility & proof](docs/business/VISIBILITY-AND-PROOF.md) | Real case studies, SEO/GEO, visual evidence, and measurement |
 
 These documents are proposed operating defaults and implementation specifications. They do not establish a legal entity or indicate that the portal, billing integration, or SEO roadmap has been implemented.
+
+### Service pages and search foundations
+
+[How we work](https://aetherai3.github.io/Blackstar/how-we-work/) · [Service guides & all documentation](https://aetherai3.github.io/Blackstar/guides/)
+
+Six service pages explain fit, deliverables, ownership, exclusions, and handoff. The shared footer links to each service and all open documentation. [Release specification](docs/SERVICE-PAGES-AND-SEARCH.md) records the page map, canonical metadata, sitemap, and remaining search ownership/indexing work.
+
+To update generated pages and footer links:
+
+```bash
+python3 scripts/build-pages.py
+python3 scripts/verify-site.py
+```
+
+Edit content in `scripts/build-pages.py`; commit the generated HTML and sitemap with it. `shared.js` handles navigation and ambient effects across pages. The Pages workflow checks local routes and includes the new directories.

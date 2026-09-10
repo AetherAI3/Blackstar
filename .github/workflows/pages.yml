@@ -21,11 +21,16 @@ jobs:
         uses: actions/checkout@v4
       - name: Configure Pages
         uses: actions/configure-pages@v5
+      - name: Verify public routes and search artifacts
+        run: |
+          python3 scripts/verify-site.py
+          node --check shared.js
+          node --check script.js
       - name: Prepare static site
         run: |
           mkdir _site
-          cp index.html styles.css script.js .nojekyll _site/
-          cp -R assets _site/assets
+          cp index.html styles.css script.js shared.js sitemap.xml .nojekyll _site/
+          cp -R assets services how-we-work guides _site/
       - name: Upload site
         uses: actions/upload-pages-artifact@v3
         with:
