@@ -20,3 +20,19 @@
 @media(prefers-reduced-motion:no-preference){.service-card{animation:card-enter .65s var(--ease) both;animation-timeline:view();animation-range:entry 0% entry 25%}@keyframes card-enter{from{opacity:.55;translate:0 24px}to{opacity:1;translate:0 0}}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.service-row{position:static;transform:none!important}.hero-brand{transform:none}*,*::before,*::after{animation:none!important;transition:none!important}}
 @media print{.site-header,#starCanvas,.hero-skyline,.hero-grid-overlay,.contact-form,.portfolio-filters{display:none}.service-row{position:static;transform:none!important}body{background:white;color:black}.section,#hero{padding:20px 0;min-height:0}.container{width:100%}.service-card,.project-card,.team-card{break-inside:avoid}}
+
+/* Supplied artwork: a shared gold/purple atmosphere and the real ECC identity. */
+#hero{background-image:linear-gradient(90deg,#0a0a0b70,#0a0a0b15),linear-gradient(0deg,#0a0a0b45,transparent 60%),url("assets/black-star-aurora.webp");background-size:cover;background-position:center;background-repeat:no-repeat}
+.hero-grid-overlay{opacity:.12}.hero-brand{box-shadow:0 30px 100px #05030a80,0 0 65px #b877d21c}.hero-bottom{color:#d4cbd6;background:linear-gradient(90deg,#0a0a0b45,transparent);border-top-color:#e9d8b84d}.hero-note{color:#b9afb9}
+.chrome-visual{background:radial-gradient(ellipse at 50% 48%,#4d176655,#160f1f 50%,#0c0b10 85%);isolation:isolate}
+.chrome-visual::before{content:"";position:absolute;inset:35px 0 0;background:linear-gradient(#08070be0,#170b20bb),url("assets/east-coast-chromes.webp") center 56%/cover;z-index:-1;opacity:.8;transition:opacity .4s}
+.chrome-visual::after{background:linear-gradient(transparent 65%,#0706098c)}
+.chrome-visual>img.chrome-project-logo{position:absolute;width:199px;height:105px;max-width:65%;padding:0;top:50%;left:50%;translate:-50% -50%;object-fit:contain;border-radius:4px;box-shadow:0 0 0 20px #0d0c0f,0 0 0 21px #9834cf55,0 22px 75px #912ae448;z-index:1;transition:box-shadow .35s,transform .35s}
+.project-card:hover .chrome-project-logo{transform:translateY(-3px);box-shadow:0 0 0 20px #0d0c0f,0 0 0 21px #b353e580,0 25px 85px #912ae460}
+.chrome-brand-note{position:absolute;top:calc(50% + 89px);inset-inline:20px;text-align:center;font-size:9px;letter-spacing:1.9px;color:#c9a8db;z-index:1}
+#port-east-coast-chrome:hover{border-color:#a54addaa}#port-east-coast-chrome .project-kicker,#port-east-coast-chrome h3 span{color:#c48ee7}
+.content-callout{padding:38px 32px;border:1px solid #d6ba784d;background:linear-gradient(90deg,#0a0a0bec 0%,#0a0a0bc9 45%,#0a0a0b35 100%),url("assets/black-star-aurora.webp") center 72%/cover}
+.about-visual{background:linear-gradient(#0a0a0b35,#0a0a0b20),url("assets/black-star-aurora.webp") center/cover;border-color:#d6ba785c}.about-visual>img{mix-blend-mode:screen}.about-caption{color:#d2c7d4}.about-visual>.eyebrow{text-shadow:0 1px 8px #000}
+#contact{background:linear-gradient(90deg,#0a0a0bef 0%,#0a0a0bb8 45%,#0a0a0ba6),url("assets/black-star-aurora.webp") center bottom/cover}.contact-form{background:#141215f2;border-color:#d6ba7860}
+.team-brand{display:flex;flex-direction:column;align-items:flex-end;gap:10px}.team-brand img{width:115px;height:auto;border:1px solid #8134a338;border-radius:3px}.team-brand .team-index{font-size:9px}
+@media(max-width:680px){#hero{background-position:58% center;background-size:auto 100%}.hero-brand{background:#0a0a0bf5}.hero-bottom{font-size:10px}.content-callout{padding:28px 24px;background-image:linear-gradient(90deg,#0a0a0be0,#0a0a0b85),url("assets/black-star-aurora.webp")}.chrome-visual>img.chrome-project-logo{width:179px;height:auto;max-width:60%}.chrome-brand-note{top:calc(50% + 79px);font-size:8px;letter-spacing:1.25px}}

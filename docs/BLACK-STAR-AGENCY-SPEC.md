@@ -69,7 +69,7 @@ Entrance animation is progressive enhancement. If scroll-driven CSS is unsupport
 ## Project-card presentation
 
 - **Aether AI:** a featured, wider card. Present the existing platform image with a contained fit, a readable domain strip, and text describing AI tools, developer infrastructure, and software.
-- **East Coast Chromes:** a large automotive image with Edwin’s media-brand description. The inherited Unsplash photograph is representative imagery, not asserted to be an original client photograph.
+- **East Coast Chromes:** the supplied purple ECC logo leads a branded preview with Edwin’s media-brand description. The original automotive image remains as a subdued background; it is representative imagery, not asserted to be an original client photograph.
 - **Food Trackers:** preserve the meal image and site link. Describe the meal-planning, macro, and calorie experience without inventing usage or customer results.
 - Keep descriptions outside the image so they do not depend on hover or disappear on touchscreens. Give the whole project card a clear link and visible focus state.
 - All external project links open a new tab with `noopener noreferrer` and accessible new-tab wording.
