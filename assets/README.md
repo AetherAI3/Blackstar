@@ -26,3 +26,9 @@ The original inline skyline is preserved in `index.html`. The existing Cormorant
 - Both assets remain local to the repository; existing project websites and Instagram destinations are unchanged.
 
 - `brandon.webp`: Brandon’s supplied `me.PNG`, resized to 700 px wide and encoded as WebP without metadata. Display framing is handled with CSS; the original photograph is not retouched.
+
+### Champagne asset pack
+
+User-supplied `glow-floor.svg`, `aurora-band.svg`, `glow-mesh.svg`, `constellation.svg`, and `star-emblem.svg` are preserved unchanged. They supply the floor/mesh lighting, CTA horizon, automation network, and small gold ornaments. `hero-atmosphere.html` contains decorative SVG/glow/dust layers adapted from the supplied `hero-opener.html`; its SVG IDs are namespaced for the live document. Live styles reduce intensity, pause motion when hidden/offscreen, provide a pause control, and honor reduced motion.
+
+The supplied `ui-components.html` informed the founder badge, source card, and footer ornament. Demo ratings, review counts, and placeholder organization links were not published. The original Black Star wordmark remains the primary identity; the spark is a secondary ornament.

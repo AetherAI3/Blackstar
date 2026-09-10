@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2100 900" width="2100" height="900" preserveAspectRatio="xMidYMid slice">
+  <!-- Black Star — horizon light band. CTA strip / footer divider / page transitions. -->
+  <defs>
+    <linearGradient id="bandLine" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#e8d5b5" stop-opacity="0"/>
+      <stop offset="30%" stop-color="#e8d5b5" stop-opacity=".55"/>
+      <stop offset="50%" stop-color="#fbf3e3"/>
+      <stop offset="70%" stop-color="#e8d5b5" stop-opacity=".55"/>
+      <stop offset="100%" stop-color="#e8d5b5" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="bandGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#c9a86a" stop-opacity=".30"/>
+      <stop offset="55%" stop-color="#c9a86a" stop-opacity=".08"/>
+      <stop offset="100%" stop-color="#c9a86a" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="bandVioletL" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#4a3d7a" stop-opacity=".18"/>
+      <stop offset="100%" stop-color="#4a3d7a" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="bandSoft" x="-30%" y="-300%" width="160%" height="700%">
+      <feGaussianBlur stdDeviation="10"/>
+    </filter>
+  </defs>
+
+  <rect width="2100" height="900" fill="#0a0a0a"/>
+
+  <!-- wide soft glow around the horizon -->
+  <ellipse cx="1050" cy="450" rx="950" ry="150" fill="url(#bandGlow)"/>
+  <ellipse cx="220" cy="450" rx="380" ry="110" fill="url(#bandVioletL)"/>
+  <ellipse cx="1880" cy="450" rx="380" ry="110" fill="url(#bandVioletL)"/>
+
+  <!-- soft band + hairline horizon -->
+  <rect x="150" y="446.5" width="1800" height="7" fill="url(#bandLine)" filter="url(#bandSoft)"/>
+  <rect x="150" y="449.2" width="1800" height="1.6" fill="url(#bandLine)"/>
+</svg>

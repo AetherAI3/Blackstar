@@ -146,3 +146,27 @@ motionPreference.addEventListener('change', () => {
     document.querySelector('.contact-journey')?.classList.remove('journey-playing');
   }
 });
+
+// Pause the supplied ambient opener offscreen, in hidden tabs, or on request.
+const ambientHero = document.querySelector('#hero');
+const heroMotionButton = document.getElementById('hero-motion-toggle');
+if (ambientHero && heroMotionButton) {
+  let heroInView = true, heroPaused = false;
+  function updateHeroMotion() {
+    const running = heroInView && !heroPaused && !document.hidden && !motionPreference.matches;
+    ambientHero.classList.toggle('ambient-running', running);
+    heroMotionButton.hidden = motionPreference.matches;
+    heroMotionButton.textContent = heroPaused ? 'Resume motion' : 'Pause motion';
+    heroMotionButton.setAttribute('aria-pressed', String(heroPaused));
+  }
+  heroMotionButton.addEventListener('click', () => { heroPaused = !heroPaused; updateHeroMotion(); });
+  document.addEventListener('visibilitychange', updateHeroMotion);
+  motionPreference.addEventListener('change', updateHeroMotion);
+  if ('IntersectionObserver' in window) {
+    const heroObserver = new IntersectionObserver(entries => {
+      heroInView = entries.some(entry => entry.isIntersecting); updateHeroMotion();
+    });
+    heroObserver.observe(ambientHero);
+  }
+  updateHeroMotion();
+}

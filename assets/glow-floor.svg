@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" width="1600" height="900" preserveAspectRatio="xMidYMid slice">
+  <!-- Black Star — low ambient floor glow. Universal backdrop behind dense card grids; very dim by design. -->
+  <defs>
+    <radialGradient id="floorGlow" cx="50%" cy="108%" r="75%">
+      <stop offset="0%" stop-color="#c9a86a" stop-opacity=".16"/>
+      <stop offset="45%" stop-color="#c9a86a" stop-opacity=".05"/>
+      <stop offset="100%" stop-color="#c9a86a" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="floorWarm" cx="18%" cy="110%" r="50%">
+      <stop offset="0%" stop-color="#8a6f42" stop-opacity=".08"/>
+      <stop offset="100%" stop-color="#8a6f42" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1600" height="900" fill="#0a0a0a"/>
+  <rect width="1600" height="900" fill="url(#floorGlow)"/>
+  <rect width="1600" height="900" fill="url(#floorWarm)"/>
+</svg>

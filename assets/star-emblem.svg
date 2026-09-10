@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <!-- Black Star — gold spark emblem. Transparent background. Use for reviews badge, favicon accent, section markers. -->
+  <defs>
+    <radialGradient id="bsCore" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#f6e8cf"/>
+      <stop offset="35%" stop-color="#e8d5b5"/>
+      <stop offset="70%" stop-color="#c9a86a" stop-opacity=".55"/>
+      <stop offset="100%" stop-color="#c9a86a" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="bsRayV" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#e8d5b5" stop-opacity="0"/>
+      <stop offset="50%" stop-color="#e8d5b5"/>
+      <stop offset="100%" stop-color="#e8d5b5" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="bsRayH" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#e8d5b5" stop-opacity="0"/>
+      <stop offset="50%" stop-color="#e8d5b5"/>
+      <stop offset="100%" stop-color="#e8d5b5" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="bsStar" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f0dfbe"/>
+      <stop offset="55%" stop-color="#d4b896"/>
+      <stop offset="100%" stop-color="#a8854e"/>
+    </linearGradient>
+    <filter id="bsBloom" x="-80%" y="-80%" width="260%" height="260%">
+      <feGaussianBlur stdDeviation="5"/>
+    </filter>
+  </defs>
+
+  <!-- ambient bloom -->
+  <circle cx="100" cy="100" r="58" fill="url(#bsCore)" opacity=".5"/>
+
+  <!-- long fine rays -->
+  <g opacity=".9">
+    <rect x="99.1" y="18" width="1.8" height="164" fill="url(#bsRayV)"/>
+    <rect x="18" y="99.1" width="164" height="1.8" fill="url(#bsRayH)"/>
+  </g>
+
+  <!-- bloom copy of the star -->
+  <path d="M100 52 C103.5 82 112 90.5 142 100 C112 109.5 103.5 118 100 148 C96.5 118 88 109.5 58 100 C88 90.5 96.5 82 100 52 Z"
+        fill="#e8d5b5" filter="url(#bsBloom)" opacity=".85"/>
+
+  <!-- crisp four-point star -->
+  <path d="M100 52 C103.5 82 112 90.5 142 100 C112 109.5 103.5 118 100 148 C96.5 118 88 109.5 58 100 C88 90.5 96.5 82 100 52 Z"
+        fill="url(#bsStar)"/>
+
+  <!-- bright core -->
+  <circle cx="100" cy="100" r="6.5" fill="#fbf3e3"/>
+</svg>

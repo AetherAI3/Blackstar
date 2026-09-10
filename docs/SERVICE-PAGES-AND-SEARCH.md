@@ -64,3 +64,9 @@ Numbered section labels, service counters, and project/team indices have been re
 The about frame uses a CSS view-timeline where supported. Other cards and headings receive one brief entrance animation as they enter view; content is never hidden while waiting for JavaScript. Reduced-motion disables the movement, including when the preference changes during a visit.
 
 The contact section includes a code-native SVG sequence: website/computer, paper plane on a dotted route, rising building, and completion check. It plays once on entering view, lasts eight seconds, and settles into a static illustration. Reduced-motion visitors get the static sequence. Its accessible description identifies it as an illustrative project journey, not form submission status. It is independent of email-draft behavior and never claims an inquiry has been delivered.
+
+## Supplied artwork integration
+
+The opener incorporates the supplied hero prototype’s gold ribbons, restrained dust, warm/violet glows, and static grain behind the established copy and logo. The founder badge links to the actual team; the source card links to this repository. Mesh and floor SVGs sit behind services, work, and about content. The constellation supports automation and the process page; the horizon band and gold spark carry the palette through the footer CTA. All five supplied SVGs remain local and unmodified.
+
+Decorative layers ignore pointer input and stay out of the accessibility tree. The opener offers a pause/resume button; animation pauses outside the viewport and when the tab is hidden. Reduced-motion displays static artwork. Mobile uses fewer dust particles and dimmer ribbons. Existing personal links, portrait, work assets, navigation, contact behavior, and search URLs remain in place. The sample UI’s ratings/review numbers were demonstration content, not verified business evidence, and were replaced by a factual founder badge.
