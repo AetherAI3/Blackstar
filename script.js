@@ -33,14 +33,89 @@ document.querySelectorAll('[data-service]').forEach(link => link.addEventListene
   serviceSelect.value = link.dataset.service;
 }));
 const form = document.getElementById('contact-form');
+const messageField = document.getElementById('message');
+const formStatus = document.getElementById('form-success');
+function updateMessageCount() {
+  document.getElementById('message-count').textContent = `${messageField.value.length.toLocaleString()} / 1,800`;
+}
+['name', 'message'].forEach(id => {
+  const field = document.getElementById(id);
+  field.addEventListener('input', () => field.setCustomValidity(field.value.trim() ? '' : 'Please add a little detail.'));
+});
+messageField.addEventListener('input', updateMessageCount);
+function projectBrief() {
+  const data = new FormData(form);
+  const service = serviceSelect.value ? serviceSelect.selectedOptions[0].textContent : 'Let’s discuss';
+  return `Name: ${String(data.get('name')).trim()}\nEmail: ${String(data.get('email')).trim()}\nService: ${service}\nBudget: ${data.get('budget') || 'Let’s scope it together'}\nTiming: ${data.get('timeline') || 'Still exploring'}\n\n${messageField.value.trim()}`;
+}
 form.addEventListener('submit', event => {
   event.preventDefault();
   if (!form.reportValidity()) return;
-  const data = new FormData(form);
-  const service = serviceSelect.value ? serviceSelect.selectedOptions[0].textContent : 'Let’s discuss';
-  const body = `Name: ${data.get('name')}\nEmail: ${data.get('email')}\nService: ${service}\nBudget: ${data.get('budget') || 'Let’s scope it together'}\n\n${data.get('message')}`;
-  window.location.href = 'mailto:hello@blackstarentertainment.com?subject=' + encodeURIComponent('Black Star project inquiry') + '&body=' + encodeURIComponent(body);
-  document.getElementById('form-success').textContent = 'Your email draft is ready to open. Review and send it from your email app. If nothing opens, email hello@blackstarentertainment.com directly or reach out on Instagram.';
+  window.location.href = 'mailto:hello@blackstarentertainment.com?subject=' + encodeURIComponent('Black Star project inquiry') + '&body=' + encodeURIComponent(projectBrief());
+  formStatus.textContent = 'Review and send the draft in your email app. Nothing has been sent from this page. If no app opens, copy your brief and email us directly.';
+});
+document.getElementById('copy-brief').addEventListener('click', async () => {
+  try {
+    await navigator.clipboard.writeText(projectBrief());
+    formStatus.textContent = 'Project brief copied. Paste it into an email to hello@blackstarentertainment.com or a message to our team.';
+  } catch {
+    formStatus.textContent = 'Clipboard access is unavailable. Select and copy your project details, then email us or reach out on Instagram.';
+  }
+});
+
+// A local, deterministic guide: no AI, external requests, or chat data storage.
+const guideLauncher = document.getElementById('guide-launcher');
+const guidePanel = document.getElementById('guide-panel');
+const guideOptions = document.getElementById('guide-options');
+const guideResponse = document.getElementById('guide-response');
+const guideBack = document.getElementById('guide-back');
+const servicePaths = {
+  web: ['Websites & web apps', 'A business website, landing page, or custom portal built around what your visitors need to do.', 'What should your website or app help people do?'],
+  brand: ['Brand identity & design', 'A clear identity, visual direction, and everyday design that make your business feel consistent.', 'Tell us about your business and the identity you want to build.'],
+  video: ['Photography & video', 'Brand films, automotive photography, product shoots, and short edits that put your work in focus.', 'What are we shooting, and where will the content be used?'],
+  social: ['Social content & management', 'Content planning, platform-ready creative, and publishing support to help you show up consistently.', 'Which platforms do you use, and what do you want your content to achieve?'],
+  automation: ['AI agents & automation', 'Practical agents and connected workflows that help with repetitive tasks and keep your tools working together.', 'Which task or workflow would you like to simplify?'],
+  marketing: ['Marketing & launch support', 'Campaign creative, launch pages, and coordinated content to help your next offer reach the right people.', 'What are you launching, and who is it for?'],
+  multiple: ['Help me choose', 'We can shape the scope together. Start with your goal and we’ll work out which mix of creative and technical support fits.', 'What would you like to improve or bring to life?']
+};
+function guideButton(label, action) {
+  const button = document.createElement('button');
+  button.type = 'button'; button.textContent = label;
+  button.addEventListener('click', action); guideOptions.append(button);
+}
+function guideHome(focus = false) {
+  guideResponse.textContent = 'What would you like help with?';
+  guideOptions.replaceChildren(); guideBack.hidden = true;
+  Object.entries(servicePaths).forEach(([key, path]) => guideButton(path[0] + ' →', () => guideChoose(key)));
+  if (focus) guideOptions.querySelector('button').focus();
+}
+function closeGuide(restoreFocus = true) {
+  guidePanel.hidden = true; guideLauncher.setAttribute('aria-expanded', 'false');
+  if (restoreFocus) guideLauncher.focus();
+}
+function guideChoose(key) {
+  const path = servicePaths[key];
+  guideResponse.textContent = path[1]; guideOptions.replaceChildren(); guideBack.hidden = false;
+  guideButton('Tell us about your project ↗', () => {
+    serviceSelect.value = key;
+    messageField.placeholder = path[2];
+    closeGuide(false);
+    window.location.hash = 'contact';
+    document.getElementById('name').focus({ preventScroll: true });
+  });
+  guideOptions.querySelector('button').focus();
+}
+guideHome(); guideLauncher.hidden = false;
+guideLauncher.addEventListener('click', () => {
+  if (!guidePanel.hidden) { closeGuide(); return; }
+  guidePanel.hidden = false; guideLauncher.setAttribute('aria-expanded', 'true');
+  document.getElementById('guide-close').focus();
+});
+document.getElementById('guide-close').addEventListener('click', () => closeGuide());
+guideBack.addEventListener('click', () => guideHome(true));
+guidePanel.addEventListener('keydown', event => { if (event.key === 'Escape') { event.stopPropagation(); closeGuide(); } });
+document.addEventListener('pointerdown', event => {
+  if (!guidePanel.hidden && !event.target.closest('.project-guide')) closeGuide(false);
 });
 // Keep artwork readable if an optional preview cannot load.
 document.querySelectorAll('.project-visual > img').forEach(img => img.addEventListener('error', () => { img.hidden = true; }));

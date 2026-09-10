@@ -70,3 +70,9 @@ Open `http://localhost:8080`. No build step or package installation is required.
 Pushes to `main` run the existing Pages workflow and publish the site files and assets. Keep GitHub Pages enabled for this repository. Site: **https://aetherai3.github.io/Blackstar/**.
 
 The inquiry form opens the visitor’s email app; it does not send or store messages. The supplied recipient is `hello@blackstarentertainment.com`. Confirm that mailbox is monitored before relying on email inquiries; both founders’ Instagram links remain available.
+
+### Guided project inquiries
+
+A small automated service guide helps visitors explore the six services and carries their selection into the contact form. It runs locally without an AI service or chat storage. The form includes timing, message-length feedback, and a copy-brief fallback. Brandon’s team card uses his supplied portrait.
+
+[Contact flow and Resend integration specification](docs/CONTACT-AND-RESEND-SPEC.md) covers the proposed server endpoint, request validation, spam controls, provider setup, retry behavior, and release checks. **Resend is not connected yet**; the current form still prepares an email draft.
