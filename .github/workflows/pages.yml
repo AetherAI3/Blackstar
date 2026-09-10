@@ -26,10 +26,11 @@ jobs:
           python3 scripts/verify-site.py
           node --check shared.js
           node --check script.js
+          node --check guide.js
       - name: Prepare static site
         run: |
           mkdir _site
-          cp index.html styles.css script.js shared.js sitemap.xml .nojekyll _site/
+          cp index.html styles.css script.js shared.js guide.js sitemap.xml .nojekyll _site/
           cp -R assets services how-we-work guides _site/
       - name: Upload site
         uses: actions/upload-pages-artifact@v3

@@ -2,6 +2,7 @@
 const toggle = document.getElementById('hamburger');
 const menu = document.getElementById('nav-menu');
 function closeMenu(returnFocus = false) {
+  closeDropdowns();
   menu.classList.remove('open');
   toggle.setAttribute('aria-expanded', 'false');
   toggle.setAttribute('aria-label', 'Open navigation');
@@ -70,3 +71,40 @@ if ('IntersectionObserver' in window) {
 document.addEventListener('pointerdown', event => {
   if (menu.classList.contains('open') && !menu.contains(event.target) && !toggle.contains(event.target)) closeMenu();
 });
+
+// Native disclosures remain clickable and keyboard-operable without hover.
+const navDrops = [...menu.querySelectorAll('.nav-dropdown')];
+const desktopHover = window.matchMedia('(min-width: 961px) and (hover: hover) and (pointer: fine)');
+let navCloseTimer;
+function closeDropdowns(except = null) {
+  window.clearTimeout(navCloseTimer);
+  navDrops.forEach(drop => { if (drop !== except) drop.open = false; });
+}
+navDrops.forEach(drop => {
+  drop.addEventListener('toggle', () => { if (drop.open) closeDropdowns(drop); });
+  drop.addEventListener('pointerenter', event => {
+    if (!desktopHover.matches || event.pointerType === 'touch') return;
+    window.clearTimeout(navCloseTimer); closeDropdowns(drop); drop.open = true;
+  });
+  drop.addEventListener('pointerleave', () => {
+    if (!desktopHover.matches) return;
+    navCloseTimer = window.setTimeout(() => { if (!drop.contains(document.activeElement)) drop.open = false; }, 180);
+  });
+  drop.addEventListener('focusout', () => {
+    window.setTimeout(() => { if (!drop.contains(document.activeElement) && !drop.matches(':hover')) drop.open = false; }, 0);
+  });
+  drop.querySelector('summary').addEventListener('keydown', event => {
+    if (event.key === 'ArrowDown') {
+      event.preventDefault(); closeDropdowns(drop); drop.open = true;
+      drop.querySelector('a').focus();
+    }
+  });
+});
+menu.addEventListener('keydown', event => {
+  if (event.key !== 'Escape') return;
+  const open = navDrops.find(drop => drop.open);
+  if (open) { event.stopPropagation(); closeDropdowns(); open.querySelector('summary').focus(); }
+});
+menu.querySelectorAll('a').forEach(link => link.addEventListener('click', () => closeDropdowns()));
+document.addEventListener('pointerdown', event => { if (!menu.contains(event.target)) closeDropdowns(); });
+desktopHover.addEventListener('change', () => closeDropdowns());
