@@ -22,8 +22,8 @@
 @media print{.site-header,#starCanvas,.hero-skyline,.hero-grid-overlay,.contact-form,.portfolio-filters{display:none}.service-row{position:static;transform:none!important}body{background:white;color:black}.section,#hero{padding:20px 0;min-height:0}.container{width:100%}.service-card,.project-card,.team-card{break-inside:avoid}}
 
 /* Supplied artwork: a shared gold/purple atmosphere and the real ECC identity. */
-#hero{background-image:linear-gradient(90deg,#0a0a0b70,#0a0a0b15),linear-gradient(0deg,#0a0a0b45,transparent 60%),url("assets/black-star-aurora.webp");background-size:cover;background-position:center;background-repeat:no-repeat}
-.hero-grid-overlay{opacity:.12}.hero-brand{box-shadow:0 30px 100px #05030a80,0 0 65px #b877d21c}.hero-bottom{color:#d4cbd6;background:linear-gradient(90deg,#0a0a0b45,transparent);border-top-color:#e9d8b84d}.hero-note{color:#b9afb9}
+#hero{background-image:radial-gradient(ellipse at 60% 65%,transparent 20%,#05050966 100%),linear-gradient(90deg,#05050bb8,#05050b7a),linear-gradient(0deg,#07070bad 0%,#07070b33 45%,#07070b40 100%),url("assets/black-star-aurora.webp");background-size:cover;background-position:center;background-repeat:no-repeat}
+.hero-grid-overlay{opacity:.06}#hero #starCanvas{opacity:.55}#hero .hero-skyline{opacity:.09}.hero-brand{box-shadow:0 30px 100px #0009,0 0 65px #b877d20a;border-color:#d6ba7826}#hero .hero-logo{opacity:.9}.hero-bottom{color:#d4cbd6;background:linear-gradient(90deg,#0a0a0b45,transparent);border-top-color:#e9d8b84d}.hero-note{color:#b9afb9}
 .chrome-visual{background:radial-gradient(ellipse at 50% 48%,#4d176655,#160f1f 50%,#0c0b10 85%);isolation:isolate}
 .chrome-visual::before{content:"";position:absolute;inset:35px 0 0;background:linear-gradient(#08070be0,#170b20bb),url("assets/east-coast-chromes.webp") center 56%/cover;z-index:-1;opacity:.8;transition:opacity .4s}
 .chrome-visual::after{background:linear-gradient(transparent 65%,#0706098c)}
