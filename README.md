@@ -76,3 +76,17 @@ The inquiry form opens the visitor’s email app; it does not send or store mess
 A small automated service guide helps visitors explore the six services and carries their selection into the contact form. It runs locally without an AI service or chat storage. The form includes timing, message-length feedback, and a copy-brief fallback. Brandon’s team card uses his supplied portrait.
 
 [Contact flow and Resend integration specification](docs/CONTACT-AND-RESEND-SPEC.md) covers the proposed server endpoint, request validation, spam controls, provider setup, retry behavior, and release checks. **Resend is not connected yet**; the current form still prepares an email draft.
+
+### Business and delivery foundation
+
+[**Operating specification →**](docs/business/OPERATING-SPEC.md)
+
+The next-stage plan defines Brandon’s ownership of web development, backend systems, and billing; Edwin’s creative production responsibilities; and the shared path from inquiry to verified delivery.
+
+| Blueprint | Covers |
+| --- | --- |
+| [Client portal & integrations](docs/business/PORTAL-AND-INTEGRATIONS.md) | Private assets, versioned feedback, approvals, invoice tracking, and development gates |
+| [Scope & delivery templates](docs/business/SCOPE-AND-DELIVERY.md) | Revision boundaries, technical scope, change requests, and complete handoffs |
+| [Visibility & proof](docs/business/VISIBILITY-AND-PROOF.md) | Real case studies, SEO/GEO, visual evidence, and measurement |
+
+These documents are proposed operating defaults and implementation specifications. They do not establish a legal entity or indicate that the portal, billing integration, or SEO roadmap has been implemented.
