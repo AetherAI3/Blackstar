@@ -129,21 +129,20 @@ if ('IntersectionObserver' in window) {
     });
   }, { threshold: .08 });
   revealTargets.forEach(target => revealObserver.observe(target));
-  const journey = document.querySelector('.contact-journey');
-  if (journey) {
-    const journeyObserver = new IntersectionObserver(entries => {
-      if (entries.some(entry => entry.isIntersecting)) {
-        if (!motionPreference.matches) journey.classList.add('journey-playing');
-        journeyObserver.disconnect();
-      }
-    }, { threshold: .5 });
-    journeyObserver.observe(journey);
-  }
+  const journeys = document.querySelectorAll('.contact-journey');
+  const journeyObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      if (!motionPreference.matches) entry.target.classList.add('journey-playing');
+      journeyObserver.unobserve(entry.target);
+    });
+  }, { threshold: .5 });
+  journeys.forEach(journey => journeyObserver.observe(journey));
 }
 motionPreference.addEventListener('change', () => {
   if (motionPreference.matches) {
     runningReveals.forEach(animation => animation.cancel()); runningReveals.clear();
-    document.querySelector('.contact-journey')?.classList.remove('journey-playing');
+    document.querySelectorAll('.contact-journey').forEach(journey => journey.classList.remove('journey-playing'));
   }
 });
 
