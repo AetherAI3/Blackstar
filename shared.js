@@ -147,19 +147,13 @@ motionPreference.addEventListener('change', () => {
   }
 });
 
-// Pause the supplied ambient opener offscreen, in hidden tabs, or on request.
+// A brief ambient opening settles automatically; no visible motion control.
 const ambientHero = document.querySelector('#hero');
-const heroMotionButton = document.getElementById('hero-motion-toggle');
-if (ambientHero && heroMotionButton) {
-  let heroInView = true, heroPaused = false;
+if (ambientHero) {
+  let heroInView = true, introSettled = false;
   function updateHeroMotion() {
-    const running = heroInView && !heroPaused && !document.hidden && !motionPreference.matches;
-    ambientHero.classList.toggle('ambient-running', running);
-    heroMotionButton.hidden = motionPreference.matches;
-    heroMotionButton.textContent = heroPaused ? 'Resume motion' : 'Pause motion';
-    heroMotionButton.setAttribute('aria-pressed', String(heroPaused));
+    ambientHero.classList.toggle('ambient-running', heroInView && !introSettled && !document.hidden && !motionPreference.matches);
   }
-  heroMotionButton.addEventListener('click', () => { heroPaused = !heroPaused; updateHeroMotion(); });
   document.addEventListener('visibilitychange', updateHeroMotion);
   motionPreference.addEventListener('change', updateHeroMotion);
   if ('IntersectionObserver' in window) {
@@ -169,4 +163,5 @@ if (ambientHero && heroMotionButton) {
     heroObserver.observe(ambientHero);
   }
   updateHeroMotion();
+  window.setTimeout(() => { introSettled = true; updateHeroMotion(); }, 4500);
 }
