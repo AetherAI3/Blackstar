@@ -164,3 +164,58 @@ if (ambientHero) {
   updateHeroMotion();
   window.setTimeout(() => { introSettled = true; updateHeroMotion(); }, 4500);
 }
+
+// Hero pathways: hover previews, click/tap pins, and native anchors navigate.
+(() => {
+  const deck = document.querySelector('.hero-card-deck');
+  if (!deck) return;
+  const toggle = deck.querySelector('.hero-deck-toggle');
+  const pathways = deck.querySelector('.hero-pathways');
+  const hover = matchMedia('(hover: hover) and (pointer: fine)');
+  let pinned = false, suppressed = false, closeTimer;
+  function setOpen(open) {
+    deck.classList.toggle('is-open', open);
+    toggle.setAttribute('aria-expanded', String(open));
+    pathways.inert = !open;
+    pathways.setAttribute('aria-hidden', String(!open));
+  }
+  function close() { pinned = false; setOpen(false); }
+  toggle.hidden = false;
+  deck.classList.add('hero-deck-ready');
+  setOpen(false);
+  deck.addEventListener('pointerenter', event => {
+    clearTimeout(closeTimer);
+    if (hover.matches && event.pointerType !== 'touch' && !suppressed) setOpen(true);
+  });
+  deck.addEventListener('pointerleave', () => {
+    suppressed = false;
+    closeTimer = setTimeout(() => {
+      if (!pinned && !deck.contains(document.activeElement)) close();
+    }, 160);
+  });
+  toggle.addEventListener('click', () => {
+    if (pinned) { suppressed = true; close(); }
+    else { suppressed = false; pinned = true; setOpen(true); }
+  });
+  deck.addEventListener('focusin', () => {
+    clearTimeout(closeTimer);
+    if (!suppressed) setOpen(true);
+  });
+  deck.addEventListener('focusout', event => {
+    if (!deck.contains(event.relatedTarget)) {
+      suppressed = false;
+      if (!pinned && !(hover.matches && deck.matches(':hover'))) close();
+    }
+  });
+  deck.addEventListener('keydown', event => {
+    if (event.key !== 'Escape') return;
+    event.preventDefault();
+    suppressed = true;
+    toggle.focus();
+    close();
+  });
+  document.addEventListener('pointerdown', event => {
+    if (!deck.contains(event.target)) { suppressed = false; close(); }
+  });
+  hover.addEventListener('change', () => { suppressed = false; close(); });
+})();

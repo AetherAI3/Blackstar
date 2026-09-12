@@ -84,3 +84,10 @@ The stage reserves the tallest card's actual layout height so wrapped descriptio
 “Who we are” and the team profiles are one section under `#about`, with `#team` preserved on the founder cards for existing links. Edwin's media/brand work and Brandon's development/systems work are explained directly, with the original portrait, ECC artwork, Instagram handles and venture URLs retained. Repeated logo framing, founder-number facts and the extra team heading are removed. The final CTA and a quieter repository link stay together.
 
 Local release gate: `python3 scripts/verify-business.py` (includes the nine public routes/assets/fragment checks and JavaScript syntax). `carousel.js` is included in the Pages artifact. Cache version: `project-carousel-1`.
+
+
+## Opening pathways and ambient artwork — September 12, 2026
+
+The opening Black Star card reveals three direct paths: websites and web apps (`#service-web`), media and brand growth (`#service-video`), and contact (`#contact`). Hover previews the fan; click or tap keeps it open. Keyboard focus reveals the links, Escape closes the fan, and an outside click dismisses it. No carousel timer or scroll capture is involved. Without JavaScript, the three links remain visible. Mobile uses three readable rows; reduced-motion preferences remove transition effects.
+
+The supplied cyan-violet artwork is optimized as `assets/work-hero-glow.webp` behind the project carousel. The supplied amber/cyan split is `assets/hero-split-glow.webp`, subtly masked around the opening card deck. Both remain decorative, use repository-relative URLs for GitHub Pages, and leave text, photographs, logos, and existing interactions intact.
