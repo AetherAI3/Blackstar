@@ -219,3 +219,38 @@ if (ambientHero) {
   });
   hover.addEventListener('change', () => { suppressed = false; close(); });
 })();
+
+// Per-service cursor tint: one scheduled frame, no loop while the pointer rests.
+(() => {
+  const cards = [...document.querySelectorAll('#services .service-card')];
+  let card = null, frame = 0, x = 0, y = 0;
+  function reset() {
+    if (frame) cancelAnimationFrame(frame);
+    frame = 0;
+    if (card) {
+      card.style.removeProperty('--card-mx');
+      card.style.removeProperty('--card-my');
+    }
+    card = null;
+  }
+  cards.forEach(target => {
+    target.addEventListener('pointermove', event => {
+      if (!glowPreference.matches || event.pointerType === 'touch') return;
+      if (card !== target) { reset(); card = target; }
+      x = event.clientX; y = event.clientY;
+      if (frame) return;
+      frame = requestAnimationFrame(() => {
+        frame = 0;
+        if (!card) return;
+        const bounds = card.getBoundingClientRect();
+        card.style.setProperty('--card-mx', `${x - bounds.left}px`);
+        card.style.setProperty('--card-my', `${y - bounds.top}px`);
+      });
+    }, { passive: true });
+    target.addEventListener('pointerleave', reset);
+    target.addEventListener('pointercancel', reset);
+  });
+  window.addEventListener('blur', reset);
+  window.addEventListener('scroll', reset, { passive: true });
+  glowPreference.addEventListener('change', reset);
+})();
