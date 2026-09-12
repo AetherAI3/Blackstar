@@ -24,7 +24,6 @@ jobs:
       - run: node --test tests/site/contact-function.test.mjs tests/site/analytics-config.test.mjs
   resend-domain-readiness:
     runs-on: ubuntu-latest
-    environment: github-pages
     env:
       RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
     steps:
