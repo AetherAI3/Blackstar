@@ -1,6 +1,6 @@
 # PostHog: Black Star measurement plan
 
-Status: integration code prepared; production credentials, event receipt, and dashboard remain unverified. Prepared September 12, 2026. Brandon owns analytics and engineering; Edwin uses the content and service-interest results.
+Status: integration code prepared; Cloudflare production token binding configured, but production event receipt remains unverified. The dashboard exists with one traffic insight and a setup note; custom-event charts await the first consented production events. Updated September 12, 2026. Brandon owns analytics and engineering; Edwin uses the content and service-interest results.
 
 ## Start here
 
@@ -45,7 +45,7 @@ Explicit initial SDK settings: `autocapture: false`, `capture_pageview: false`, 
 
 ## One dashboard: Website → inquiry
 
-The account was not authenticated during implementation, so this dashboard has **not** been created. After the first verified production events arrive in project 605964, use **Dashboards → New dashboard → Blank dashboard**, name it **Website → inquiry**, then use **+ New insight → Save & add to dashboard** for each tile below. Set each insight's event-property filter `environment = production` where that property exists (`$pageview`); all custom events are already gated to the production host. Use a 30-day date range and daily interval initially.
+The [Website → inquiry dashboard](https://us.posthog.com/project/605964/dashboard/2089904) is created in project 605964. It currently contains a 30-day daily **Traffic by landing page** trend for `$pageview`, broken down by PostHog's query-free `Path name` (`$pathname`) property, plus a text card that lists the pending charts. PostHog reported **no events yet** when this was created, and the chart may show sample data; neither is evidence of real production traffic. The custom events and properties were not selectable before ingestion, so the remaining insights below have **not** been created. After the first verified, consented production events arrive, use **Add → Charts → Trend/Funnel → Save & add to dashboard**. Set each insight's event-property filter `environment = production` where that property exists (`$pageview`); all custom events are already gated to the production host. Use a 30-day date range and daily interval initially.
 
 1. **Traffic by landing page:** Trends insight, `$pageview`, count unique users and total events, breakdown by event property `route`. Add separate `$pageview` trends broken down by `referrer_domain` and `$device_type`. Referrer stripping limits attribution; do not confuse direct/unknown traffic with a proven direct visit.
 2. **Service interest:** Trends insight, `service_selected`, total events, breakdown by `service`; add a second tile broken down by `source`. This counts selections, not purchases or necessarily unique people.
