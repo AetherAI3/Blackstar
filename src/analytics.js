@@ -89,7 +89,7 @@
       panel.className = 'analytics-consent';
       panel.setAttribute('aria-label', 'Analytics choice');
       const message = document.createElement('p');
-      message.textContent = 'May we use optional, anonymous website analytics to improve our services and contact experience? We do not record form details or sessions.';
+      message.textContent = 'May we use optional website analytics to improve our services and contact experience? We do not record form details or sessions.';
       const actions = document.createElement('div');
       for (const [label, value] of [['Allow analytics', 'accepted'], ['No thanks', 'declined']]) {
         const button = document.createElement('button');
