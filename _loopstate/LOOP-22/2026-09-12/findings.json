@@ -1,0 +1,130 @@
+[
+  {
+    "id": "F1",
+    "severity": "high",
+    "category": "privacy",
+    "confidence": 0.9,
+    "evidence_tier": "first-party",
+    "observation_date": "2026-09-12",
+    "root_cause": "Native contact form can submit named fields with GET if its handler is unavailable.",
+    "proposed_change": "Disabled initial fieldset, POST fallback, enable only after handlers register, explicit failure help, form-action none.",
+    "status": "verified",
+    "tests": [
+      "no_js_form + disabled-fieldset and GET mutants"
+    ],
+    "rollback": "revert the branch change",
+    "approval_required": false
+  },
+  {
+    "id": "F2",
+    "severity": "medium",
+    "category": "ux",
+    "confidence": 0.8,
+    "evidence_tier": "first-party",
+    "observation_date": "2026-09-12",
+    "root_cause": "Mobile hero links have absolute top positions 205/307/409px and fixed expanded height. Text growth can exceed each slot.",
+    "proposed_change": "Mobile links use document flow/grid and automatic height; logo stays stable on tap.",
+    "status": "applied",
+    "tests": [
+      "MOBILE-01 manual enlarged-text flow; device render pending"
+    ],
+    "rollback": "revert the branch change",
+    "approval_required": false
+  },
+  {
+    "id": "F3",
+    "severity": "medium",
+    "category": "a11y",
+    "confidence": 0.8,
+    "evidence_tier": "first-party",
+    "observation_date": "2026-09-12",
+    "root_cause": "Specific .form-group control font rules can override the generic 16px mobile rule.",
+    "proposed_change": "Mobile controls use specific 16px selectors.",
+    "status": "applied",
+    "tests": [
+      "MOBILE-02 iOS focus/zoom check pending"
+    ],
+    "rollback": "revert the branch change",
+    "approval_required": false
+  },
+  {
+    "id": "F4",
+    "severity": "low",
+    "category": "technical-seo",
+    "confidence": 0.9,
+    "evidence_tier": "first-party",
+    "observation_date": "2026-09-12",
+    "root_cause": "Cloudflare strips index.html, but navigation repeatedly links to it.",
+    "proposed_change": "Normalize only local home links in the Cloudflare output; preserve fragments, query handoff and GitHub compatibility.",
+    "status": "verified",
+    "tests": [
+      "nine-route unnecessary-home-redirect contract"
+    ],
+    "rollback": "revert the branch change",
+    "approval_required": false
+  },
+  {
+    "id": "F5",
+    "severity": "medium",
+    "category": "security",
+    "confidence": 0.9,
+    "evidence_tier": "first-party",
+    "observation_date": "2026-09-12",
+    "root_cause": "Repository has no Cloudflare response-header policy; secondary pages.dev host is a crawlable production duplicate by default.",
+    "proposed_change": "Scoped _headers: framing/object/base/form restrictions, nosniff/referrer/permissions; noindex only pages.dev hosts.",
+    "status": "verified",
+    "tests": [
+      "public-header scoping contract + global-noindex mutant; deployed behavior pending"
+    ],
+    "rollback": "revert the branch change",
+    "approval_required": false
+  },
+  {
+    "id": "D1",
+    "severity": "medium",
+    "category": "measurement",
+    "confidence": 0.8,
+    "evidence_tier": "first-party",
+    "observation_date": "2026-09-12",
+    "root_cause": "Owner reports no Search Console/Bing verified property.",
+    "proposed_change": "Owner verify domain and submit canonical sitemap; no fabricated verification tokens.",
+    "status": "deferred",
+    "tests": [
+      "Owner URL Inspection and sitemap receipt"
+    ],
+    "rollback": "revert the branch change",
+    "approval_required": true
+  },
+  {
+    "id": "D2",
+    "severity": "high",
+    "category": "access",
+    "confidence": 0.8,
+    "evidence_tier": "first-party",
+    "observation_date": "2026-09-12",
+    "root_cause": "Owner reports Cloudflare GitHub installation grants All repositories.",
+    "proposed_change": "Inventory Cloudflare projects, then scope installation to approved repositories without breaking other deployments.",
+    "status": "deferred",
+    "tests": [
+      "Owner installation/project access review"
+    ],
+    "rollback": "revert the branch change",
+    "approval_required": true
+  },
+  {
+    "id": "D3",
+    "severity": "medium",
+    "category": "conversion",
+    "confidence": 0.8,
+    "evidence_tier": "first-party",
+    "observation_date": "2026-09-12",
+    "root_cause": "Public mailto still uses hello@blackstarentertainment.com although new site is .org; mailbox ownership/delivery is unknown.",
+    "proposed_change": "Brandon verify destination ownership and receipt before changing any address or activating sending.",
+    "status": "deferred",
+    "tests": [
+      "Owner end-to-end mailbox test"
+    ],
+    "rollback": "revert the branch change",
+    "approval_required": true
+  }
+]

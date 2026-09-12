@@ -1,0 +1,5 @@
+# Baseline contract
+
+Baseline main: `c13ef42cd48d74ed5b4f8565bc48fbbcb5f49069`. Scope: nine static public pages, shared navigation, hero and service cards, contact draft, Cloudflare build. Goal: let a new prospect find the right service and reach a clear inquiry path, with no unsupported search claims. Existing 44 tests and nine-route checks pass. Production desktop DOM loads on blackstarentertainment.org. Owner reports HTTPS, www redirect, 404 and all nine routes passing. HTTP probes from this execution environment returned 403 and are not treated as evidence of crawler blocking. Browser has no viewport/emulation capability; Ctrl-plus did not change its viewport. Mobile rendering and field metrics remain unknown.
+
+Browser raw content and source are separate evidence. Native manifests, bridges, keystore and app-release checks are N/A: this is a static website, not a native app. ast-grep is not needed to invent a native layer; HTML parser, Python AST/source reads and build validators cover the actual scope.

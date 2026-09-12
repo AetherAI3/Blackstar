@@ -13,7 +13,7 @@ import tempfile
 ROOT = Path(__file__).resolve().parents[1]
 OUTPUT = ROOT / '_site'
 PUBLIC_FILES = ('index.html', 'styles.css', 'shared.js', 'script.js', 'guide.js',
-                'carousel.js', 'sitemap.xml', '.nojekyll')
+                'carousel.js', 'sitemap.xml', '.nojekyll', '_headers')
 PUBLIC_DIRS = ('assets', 'services', 'how-we-work', 'guides')
 env = dict(os.environ, SITE_URL='https://blackstarentertainment.org/')
 with tempfile.TemporaryDirectory(prefix='blackstar-domain-') as work:

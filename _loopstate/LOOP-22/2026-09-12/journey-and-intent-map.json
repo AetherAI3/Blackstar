@@ -1,0 +1,32 @@
+[
+  {
+    "query": "Who runs Black Star?",
+    "route": "/#team",
+    "answer": "Edwin: media/brand; Brandon: development/systems/billing",
+    "next_action": "Read service scope or open contact email draft"
+  },
+  {
+    "query": "Can you build a website or client portal?",
+    "route": "/services/websites-and-apps/",
+    "answer": "Clear scoped websites, apps and separately scoped integrations",
+    "next_action": "Read service scope or open contact email draft"
+  },
+  {
+    "query": "Can you shoot content and help manage social media?",
+    "route": "/services/photography-and-video/",
+    "answer": "Photography/video; related social-content route",
+    "next_action": "Read service scope or open contact email draft"
+  },
+  {
+    "query": "How do revisions and handoff work?",
+    "route": "/how-we-work/",
+    "answer": "Signed proposal sets review rounds and handoff",
+    "next_action": "Read service scope or open contact email draft"
+  },
+  {
+    "query": "Has my inquiry been sent?",
+    "route": "/#contact",
+    "answer": "Email draft only; visitor reviews and sends",
+    "next_action": "Read service scope or open contact email draft"
+  }
+]

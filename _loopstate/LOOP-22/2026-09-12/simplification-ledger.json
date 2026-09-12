@@ -1,0 +1,25 @@
+{
+  "routes": {
+    "before": 9,
+    "after": 9
+  },
+  "templates": {
+    "before": 2,
+    "after": 2
+  },
+  "new_runtime_dependencies": 0,
+  "new_analytics_events": 0,
+  "new_public_content_routes": 0,
+  "css_js_bytes": {
+    "after": 96121,
+    "budget": 110000
+  },
+  "home_redirect_hops": {
+    "before": "links include index.html",
+    "after": "local Cloudflare home links normalized"
+  },
+  "mobile_hero": {
+    "before": "fixed absolute rows",
+    "after": "intrinsic document flow"
+  }
+}

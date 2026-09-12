@@ -36,6 +36,10 @@ document.getElementById('copy-brief').addEventListener('click', async () => {
   }
 });
 
+// Enable fields only after the draft/copy handlers are registered.
+document.getElementById('contact-fields').disabled = false;
+document.getElementById('form-unavailable').hidden = true;
+
 // Keep artwork readable if an optional preview cannot load.
 document.querySelectorAll('.project-visual > img').forEach(img => img.addEventListener('error', () => { img.hidden = true; }));
 

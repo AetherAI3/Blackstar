@@ -88,4 +88,6 @@ Edit the generator and commit the generated HTML/sitemap together. `shared.js` h
 
 ### Custom domain: blackstarentertainment.org
 
-Cloudflare Pages build preparation is ready. Run `python3 scripts/build-cloudflare.py` and publish `_site`. It generates the new domain's metadata and sitemap without changing the current GitHub Pages source. Domain/DNS/HTTPS activation still requires the authenticated Cloudflare session. Follow the [domain launch checklist and desktop handoff](docs/CLOUDFLARE-DOMAIN-LAUNCH.md).
+The owner reports Cloudflare Pages live at https://blackstarentertainment.org/. Build preparation is ready. Run `python3 scripts/build-cloudflare.py` and publish `_site`. It generates the new domain's metadata and sitemap without changing the current GitHub Pages source. The owner verified custom-domain activation and HTTPS; search-console verification remains pending. Follow the [domain launch checklist and desktop handoff](docs/CLOUDFLARE-DOMAIN-LAUNCH.md).
+
+Latest [mobile, SEO/GEO and hardening audit](_loopstate/LOOP-22/2026-09-12/AUDIT-ARTIFACT.md) records verified fixes and remaining acceptance checks.

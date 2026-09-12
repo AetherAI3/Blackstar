@@ -1,0 +1,22 @@
+{
+  "company": "Black Star Entertainment",
+  "source": "visible homepage/footer",
+  "founders": {
+    "Edwin": "media and brand",
+    "Brandon": "development, backend and billing"
+  },
+  "evidence": "visible founder cards and supplied owner statements",
+  "preserved_links": [
+    "https://instagram.com/5.0win",
+    "https://instagram.com/zo.trades2",
+    "https://eastcoastchromes.com",
+    "https://aethersystems.net"
+  ],
+  "excluded_claims": [
+    "fabricated reviews",
+    "guaranteed ranking/citations",
+    "office addresses",
+    "invented results or clients",
+    "live backend/payment/email sending"
+  ]
+}
