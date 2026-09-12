@@ -26,7 +26,7 @@ Our work and ventures: [Aether AI](https://aethersystems.net) · [East Coast Chr
 
 ## Start with the business system
 
-**September 12, 2026 baseline: proposed prices and operations, with executable reference code.** Pricing is researched and costed, but still requires founder approval before it becomes a live offer. This repository contains no live Stripe prices, payment collection, Resend connection, provisioned client portal or executed company agreements.
+**September 12, 2026 baseline: proposed prices and operations, with executable reference code.** Pricing is researched and costed, but still requires founder approval before it becomes a live offer. This repository contains no live Stripe prices, payment collection, provisioned client portal or executed company agreements. The Resend contact integration is staged and remains in email-draft mode until its Cloudflare runtime bindings and sending domain are verified.
 
 | Read | Answers |
 | --- | --- |
@@ -57,7 +57,7 @@ Brandon owns backend and billing implementation. Edwin owns media workflow and c
 
 ## Website
 
-The live site has six service pages, founder profiles and links, project previews, a deterministic service guide, rounded dropdown navigation, dark gold atmosphere and accessible reduced-motion behavior. The inquiry form prepares an email draft or copies a brief; it does not send or store an inquiry. The supplied recipient is `hello@blackstarentertainment.com`; verify the mailbox is monitored before relying on it.
+The live site has six service pages, founder profiles and links, project previews, a deterministic service guide, rounded dropdown navigation, dark gold atmosphere and accessible reduced-motion behavior. The inquiry form prepares an email draft until direct delivery is configured. The contact address and fixed inquiry recipient are `inquiries.blackstarent@gmail.com`; direct submissions also send an immediate acknowledgment to the visitor. See the [Resend contact setup](docs/RESEND-CONTACT-SETUP.md) for activation and testing.
 
 [How we work](https://aetherai3.github.io/Blackstar/how-we-work/) · [Service guides](https://aetherai3.github.io/Blackstar/guides/) · [Agency & website specification](docs/BLACK-STAR-AGENCY-SPEC.md) · [Search and page architecture](docs/SERVICE-PAGES-AND-SEARCH.md) · [Visual proof & SEO/GEO](docs/business/VISIBILITY-AND-PROOF.md) · [Website verification](docs/VERIFICATION.md) · [Asset provenance](assets/README.md)
 
@@ -88,6 +88,6 @@ Edit the generator and commit the generated HTML/sitemap together. `shared.js` h
 
 ### Custom domain: blackstarentertainment.org
 
-The owner reports Cloudflare Pages live at https://blackstarentertainment.org/. Build preparation is ready. Run `python3 scripts/build-cloudflare.py` and publish `_site`. It generates the new domain's metadata and sitemap without changing the current GitHub Pages source. The owner verified custom-domain activation and HTTPS; search-console verification remains pending. Follow the [domain launch checklist and desktop handoff](docs/CLOUDFLARE-DOMAIN-LAUNCH.md).
+The owner reports Cloudflare Pages live at https://blackstarentertainment.org/. Run `python3 scripts/build-cloudflare.py` and publish `_site`; Pages automatically discovers the root `functions/` directory for the contact API. The build generates the domain's metadata and sitemap without changing the current GitHub Pages source. The owner verified custom-domain activation and HTTPS; search-console verification remains pending. Follow the [domain launch checklist](docs/CLOUDFLARE-DOMAIN-LAUNCH.md) and [contact activation guide](docs/RESEND-CONTACT-SETUP.md).
 
 Latest [mobile, SEO/GEO and hardening audit](_loopstate/LOOP-22/2026-09-12/AUDIT-ARTIFACT.md) records verified fixes and remaining acceptance checks.

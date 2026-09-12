@@ -2,7 +2,7 @@ name: Verify Cloudflare production build
 on:
   pull_request:
   push:
-    branches: [main, 'loop/LOOP-22-*']
+    branches: [main, 'loop/LOOP-22-*', 'feature/resend-contact-*']
 permissions:
   contents: read
 jobs:
@@ -20,3 +20,4 @@ jobs:
       - run: python3 scripts/build-cloudflare.py
       - run: python3 scripts/verify-cloudflare.py
       - run: python3 tests/site/deploy-regressions.py
+      - run: node --test tests/site/contact-function.test.mjs

@@ -28,7 +28,7 @@ class Page(HTMLParser):
   if self.in_title:self.title+=data
 
 def verify():
- routes=['']+[str(p.parent.relative_to(OUT))+'/' for p in OUT.glob('services/*/index.html')]+['how-we-work/','guides/']
+ routes=['']+[p.parent.relative_to(OUT).as_posix()+'/' for p in OUT.glob('services/*/index.html')]+['how-we-work/','guides/']
  titles=[];descriptions=[];canon=[]
  for route in routes:
   p=Page();p.feed((OUT/route/'index.html').read_text())
@@ -49,7 +49,7 @@ def verify():
  for value in ['X-Content-Type-Options: nosniff',"form-action 'none'",'X-Frame-Options: DENY','https://blackstar-1fa.pages.dev/*','https://:deployment.blackstar-1fa.pages.dev/*']:
   assert value in headers,value
  assert 'noindex' in (OUT/'404.html').read_text()
- for name in ['backend','billing','docs','scripts','tests','_loopstate','.env']:
+ for name in ['backend','billing','docs','functions','scripts','tests','_loopstate','.env']:
   assert not (OUT/name).exists(),('nonpublic-output',name)
  total=sum((OUT/name).stat().st_size for name in ['styles.css','shared.js','guide.js','carousel.js','script.js'])
  assert total < 110_000,('first-party-code-budget',total)
