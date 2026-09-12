@@ -27,7 +27,7 @@ Configuration owned by the backend:
 
 The public frontend receives only the site key. The Function accepts sends only on `https://blackstarentertainment.org` with that exact Origin, and verifies Turnstile server-side. CORS and Origin alone are not authentication; Turnstile and rate controls prevent casual abuse.
 
-Resend requires a verified sending domain. Verify `blackstarentertainment.org` before enabling delivery. The sender is `Black Star Entertainment <contact@blackstarentertainment.org>` and Reply-To on acknowledgments is the confirmed Gmail inbox. The sender address need not be an inbox; replies go to Gmail. [Resend domain setup](https://resend.com/docs/dashboard/domains/introduction).
+Resend requires a verified sending domain. Verify `blackstarentertainment.org` before enabling delivery. The owner-designated inquiry inbox is `inquiries.blackstarent@gmail.com`; confirm it receives mail. Use a verified sender on the `.org` domain as From, with the Gmail inbox as Reply-To on acknowledgments. [Resend domain setup](https://resend.com/docs/dashboard/domains/introduction).
 
 ## Request contract
 

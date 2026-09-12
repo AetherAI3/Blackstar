@@ -57,7 +57,7 @@ Brandon owns backend and billing implementation. Edwin owns media workflow and c
 
 ## Website
 
-The live site has six service pages, founder profiles and links, project previews, a deterministic service guide, rounded dropdown navigation, dark gold atmosphere and accessible reduced-motion behavior. The inquiry form prepares an email draft until direct delivery is configured. The contact address and fixed inquiry recipient are `inquiries.blackstarent@gmail.com`; direct submissions also send an immediate acknowledgment to the visitor. See the [Resend contact setup](docs/RESEND-CONTACT-SETUP.md) for activation and testing.
+The live site has six service pages, founder profiles and links, project previews, a deterministic service guide, rounded dropdown navigation, dark gold atmosphere and accessible reduced-motion behavior. The owner-designated contact address is `inquiries.blackstarent@gmail.com`. The form prepares an email draft until direct delivery is configured; once activated, direct submissions also send a visitor acknowledgment. Confirm the inbox is monitored before relying on it. See the [Resend contact setup](docs/RESEND-CONTACT-SETUP.md) for activation and testing.
 
 [How we work](https://aetherai3.github.io/Blackstar/how-we-work/) · [Service guides](https://aetherai3.github.io/Blackstar/guides/) · [Agency & website specification](docs/BLACK-STAR-AGENCY-SPEC.md) · [Search and page architecture](docs/SERVICE-PAGES-AND-SEARCH.md) · [Visual proof & SEO/GEO](docs/business/VISIBILITY-AND-PROOF.md) · [Website verification](docs/VERIFICATION.md) · [Asset provenance](assets/README.md)
 
