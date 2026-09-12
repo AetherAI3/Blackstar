@@ -1,0 +1,83 @@
+[
+  {
+    "route": "/",
+    "canonical": "https://blackstarentertainment.org/",
+    "build": "verified",
+    "raw_html_content": true,
+    "production_status": "owner reports 200; current session HTTP probe blocked",
+    "desktop_dom": "verified home",
+    "mobile_render": "not verified"
+  },
+  {
+    "route": "/services/social-content/",
+    "canonical": "https://blackstarentertainment.org/services/social-content/",
+    "build": "verified",
+    "raw_html_content": true,
+    "production_status": "owner reports 200; current session HTTP probe blocked",
+    "desktop_dom": "not individually rerun",
+    "mobile_render": "not verified"
+  },
+  {
+    "route": "/services/photography-and-video/",
+    "canonical": "https://blackstarentertainment.org/services/photography-and-video/",
+    "build": "verified",
+    "raw_html_content": true,
+    "production_status": "owner reports 200; current session HTTP probe blocked",
+    "desktop_dom": "not individually rerun",
+    "mobile_render": "not verified"
+  },
+  {
+    "route": "/services/brand-and-design/",
+    "canonical": "https://blackstarentertainment.org/services/brand-and-design/",
+    "build": "verified",
+    "raw_html_content": true,
+    "production_status": "owner reports 200; current session HTTP probe blocked",
+    "desktop_dom": "not individually rerun",
+    "mobile_render": "not verified"
+  },
+  {
+    "route": "/services/marketing-and-launches/",
+    "canonical": "https://blackstarentertainment.org/services/marketing-and-launches/",
+    "build": "verified",
+    "raw_html_content": true,
+    "production_status": "owner reports 200; current session HTTP probe blocked",
+    "desktop_dom": "not individually rerun",
+    "mobile_render": "not verified"
+  },
+  {
+    "route": "/services/ai-and-automation/",
+    "canonical": "https://blackstarentertainment.org/services/ai-and-automation/",
+    "build": "verified",
+    "raw_html_content": true,
+    "production_status": "owner reports 200; current session HTTP probe blocked",
+    "desktop_dom": "not individually rerun",
+    "mobile_render": "not verified"
+  },
+  {
+    "route": "/services/websites-and-apps/",
+    "canonical": "https://blackstarentertainment.org/services/websites-and-apps/",
+    "build": "verified",
+    "raw_html_content": true,
+    "production_status": "owner reports 200; current session HTTP probe blocked",
+    "desktop_dom": "not individually rerun",
+    "mobile_render": "not verified"
+  },
+  {
+    "route": "/how-we-work/",
+    "canonical": "https://blackstarentertainment.org/how-we-work/",
+    "build": "verified",
+    "raw_html_content": true,
+    "production_status": "owner reports 200; current session HTTP probe blocked",
+    "desktop_dom": "not individually rerun",
+    "mobile_render": "not verified"
+  },
+  {
+    "route": "/guides/",
+    "canonical": "https://blackstarentertainment.org/guides/",
+    "build": "verified",
+    "raw_html_content": true,
+    "production_status": "owner reports 200; current session HTTP probe blocked",
+    "desktop_dom": "not individually rerun",
+    "mobile_render": "not verified"
+  }
+]

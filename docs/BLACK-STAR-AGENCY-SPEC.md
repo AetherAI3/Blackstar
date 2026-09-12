@@ -4,6 +4,8 @@
 **Repository:** [AetherAI3/Blackstar](https://github.com/AetherAI3/Blackstar)  
 **Site:** [Black Star Entertainment](https://aetherai3.github.io/Blackstar/)
 
+**Contact update (September 12, 2026):** The inquiry-flow section below records the original email-draft release. The owner has since designated `inquiries.blackstarent@gmail.com` and requested direct Resend delivery with visitor acknowledgments. [Current setup and activation](RESEND-CONTACT-SETUP.md) supersedes the original contact-address and provider restrictions below.
+
 ## Purpose
 
 Position Black Star Entertainment as an independent creative and digital agency: a direct relationship with two founders who combine media production, design, software engineering, and automation. The site should help a prospective client understand what they can hire the team to do, see real work, meet the people doing it, and start a project conversation.
@@ -90,7 +92,7 @@ Remove every LinkedIn link. Do not add generic social-network homepage links, gu
 
 ## Inquiry flow
 
-The current website has no mail backend. Use the owner-designated `inquiries.blackstarent@gmail.com` address and say explicitly that the form opens a draft in the visitor’s email application. Never report a message as sent or stored by the website.
+The original draft-only website had no mail backend. Use the owner-designated `inquiries.blackstarent@gmail.com` address and say explicitly when the form opens a draft in the visitor’s email application. Never report a message as sent or stored by the website without provider acceptance.
 
 Use native required-name, email, and message validation. Service and budget are optional. Offer “Let’s scope it together,” Under $1,000, $1,000–$3,000, $3,000–$10,000, and $10,000+ as inquiry ranges, not published prices. Preserve the brief on handoff, URL-encode the subject/body, and do not send test inquiries during QA.
 

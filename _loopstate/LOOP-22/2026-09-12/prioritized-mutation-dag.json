@@ -1,0 +1,14 @@
+{
+  "order": [
+    "baseline",
+    "F1 privacy guard",
+    "F2/F3 mobile layout",
+    "F4 domain links",
+    "F5 header policy",
+    "regression/mutation checks",
+    "adversarial review",
+    "branch handoff"
+  ],
+  "production_deploy": "requires operator sign-off per uploaded LOOP-22",
+  "overlapping_writers": "serialized"
+}

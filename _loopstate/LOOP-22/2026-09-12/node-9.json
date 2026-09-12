@@ -1,0 +1,32 @@
+{
+  "node": 9,
+  "baseline_sha": "c13ef42cd48d74ed5b4f8565bc48fbbcb5f49069",
+  "branch": "loop/LOOP-22-2026-09-12",
+  "result": "READY-WITH-REVIEW",
+  "summary": [
+    "See findings.json and AUDIT-ARTIFACT.md for evidence and incomplete runtime checks."
+  ],
+  "confidence_block": {
+    "confidence": 0.86,
+    "risk": "medium",
+    "evidence": [
+      "source review",
+      "production desktop DOM",
+      "nine-route build checks",
+      "44 existing tests",
+      "six mutation checks"
+    ],
+    "unknown": [
+      "physical iOS/Android and mobile browser render",
+      "field Core Web Vitals",
+      "search-console coverage",
+      "post-deployment HTTP headers",
+      "mailbox ownership/delivery"
+    ],
+    "missing_evidence": [
+      "owner authenticated console verification",
+      "mobile-device acceptance matrix",
+      "28-day measurement window"
+    ]
+  }
+}

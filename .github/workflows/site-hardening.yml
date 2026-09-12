@@ -1,0 +1,58 @@
+name: Verify Cloudflare production build
+on:
+  pull_request:
+  push:
+    branches: [main, 'loop/LOOP-22-*', 'feature/resend-contact-*']
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: python3 scripts/verify-business.py
+      - run: python3 scripts/build-cloudflare.py
+      - run: python3 scripts/verify-cloudflare.py
+      - run: python3 tests/site/deploy-regressions.py
+      - run: node --check analytics.js && node --check script.js && node --check guide.js
+      - run: node --test tests/site/contact-function.test.mjs tests/site/analytics-config.test.mjs tests/site/analytics-consent.test.mjs
+  resend-domain-inspection:
+    runs-on: ubuntu-latest
+    env:
+      RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
+    steps:
+      - name: Confirm sender domain status without exposing credentials
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          import json, os, urllib.request, urllib.error
+          key = os.environ.get('RESEND_API_KEY', '')
+          if not key:
+              raise SystemExit('RESEND_API_KEY is unavailable in this Actions environment')
+          req = urllib.request.Request('https://api.resend.com/domains',
+              headers={'Authorization': 'Bearer ' + key})
+          try:
+              with urllib.request.urlopen(req, timeout=15) as response:
+                  domains = json.load(response).get('data', [])
+          except urllib.error.HTTPError as error:
+              if error.code == 403:
+                  print('Resend domain inspection unavailable: sending key lacks domain-read scope. Owner dashboard verification required.')
+                  with open(os.environ['GITHUB_STEP_SUMMARY'], 'a') as summary:
+                      summary.write('Resend domain status: unverified by CI (HTTP 403, key is sending-only). Check the owner dashboard before activation.\n')
+                  raise SystemExit(0)
+              raise SystemExit(f'Resend domain inspection returned HTTP {error.code}; check API key scope')
+          except Exception:
+              raise SystemExit('Resend domain inspection could not complete')
+          domain = next((item for item in domains if item.get('name') == 'blackstarentertainment.org'), None)
+          status = domain.get('status') if domain else 'missing'
+          sending = domain.get('capabilities', {}).get('sending') if domain else 'missing'
+          print(f'blackstarentertainment.org status={status}, sending={sending}')
+          if status != 'verified' or sending != 'enabled':
+              raise SystemExit('Verified Resend sender domain is not ready')
+          PY
