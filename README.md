@@ -57,7 +57,7 @@ Brandon owns backend and billing implementation. Edwin owns media workflow and c
 
 ## Website
 
-The live site has six service pages, founder profiles and links, project previews, a deterministic service guide, rounded dropdown navigation, dark gold atmosphere and accessible reduced-motion behavior. The inquiry form prepares an email draft or copies a brief; it does not send or store an inquiry. The supplied recipient is `hello@blackstarentertainment.com`; verify the mailbox is monitored before relying on it.
+The live site has six service pages, founder profiles and links, project previews, a deterministic service guide, rounded dropdown navigation, dark gold atmosphere and accessible reduced-motion behavior. The inquiry form prepares an email draft or copies a brief; it does not send or store an inquiry. The owner-designated recipient is `inquiries.blackstarent@gmail.com`; verify the mailbox is monitored before relying on it.
 
 [How we work](https://aetherai3.github.io/Blackstar/how-we-work/) · [Service guides](https://aetherai3.github.io/Blackstar/guides/) · [Agency & website specification](docs/BLACK-STAR-AGENCY-SPEC.md) · [Search and page architecture](docs/SERVICE-PAGES-AND-SEARCH.md) · [Visual proof & SEO/GEO](docs/business/VISIBILITY-AND-PROOF.md) · [Website verification](docs/VERIFICATION.md) · [Asset provenance](assets/README.md)
 

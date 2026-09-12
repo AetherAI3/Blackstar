@@ -90,7 +90,7 @@ Remove every LinkedIn link. Do not add generic social-network homepage links, gu
 
 ## Inquiry flow
 
-The current website has no mail backend. Keep the existing `hello@blackstarentertainment.com` address and say explicitly that the form opens a draft in the visitor’s email application. Never report a message as sent or stored by the website.
+The current website has no mail backend. Use the owner-designated `inquiries.blackstarent@gmail.com` address and say explicitly that the form opens a draft in the visitor’s email application. Never report a message as sent or stored by the website.
 
 Use native required-name, email, and message validation. Service and budget are optional. Offer “Let’s scope it together,” Under $1,000, $1,000–$3,000, $3,000–$10,000, and $10,000+ as inquiry ranges, not published prices. Preserve the brief on handoff, URL-encode the subject/body, and do not send test inquiries during QA.
 

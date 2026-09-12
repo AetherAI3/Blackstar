@@ -24,13 +24,13 @@ function projectBrief() {
 form.addEventListener('submit', event => {
   event.preventDefault();
   if (!form.reportValidity()) return;
-  window.location.href = 'mailto:hello@blackstarentertainment.com?subject=' + encodeURIComponent('Black Star project inquiry') + '&body=' + encodeURIComponent(projectBrief());
+  window.location.href = 'mailto:inquiries.blackstarent@gmail.com?subject=' + encodeURIComponent('Black Star project inquiry') + '&body=' + encodeURIComponent(projectBrief());
   formStatus.textContent = 'Review and send the draft in your email app. Nothing has been sent from this page. If no app opens, copy your brief and email us directly.';
 });
 document.getElementById('copy-brief').addEventListener('click', async () => {
   try {
     await navigator.clipboard.writeText(projectBrief());
-    formStatus.textContent = 'Project brief copied. Paste it into an email to hello@blackstarentertainment.com or a message to our team.';
+    formStatus.textContent = 'Project brief copied. Paste it into an email to inquiries.blackstarent@gmail.com or a message to our team.';
   } catch {
     formStatus.textContent = 'Clipboard access is unavailable. Select and copy your project details, then email us or reach out on Instagram.';
   }
