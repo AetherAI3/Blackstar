@@ -85,3 +85,7 @@ python3 scripts/verify-site.py
 ```
 
 Edit the generator and commit the generated HTML/sitemap together. `shared.js` handles common navigation and atmosphere, `script.js` handles home interactions, and `guide.js` handles the service guide. Pushes to `main` run verification and deploy only the selected static site directories to GitHub Pages. Backend modules, catalogs, tests and operational records are not a deployed backend.
+
+### Custom domain: blackstarentertainment.org
+
+Cloudflare Pages build preparation is ready. Run `python3 scripts/build-cloudflare.py` and publish `_site`. It generates the new domain's metadata and sitemap without changing the current GitHub Pages source. Domain/DNS/HTTPS activation still requires the authenticated Cloudflare session. Follow the [domain launch checklist and desktop handoff](docs/CLOUDFLARE-DOMAIN-LAUNCH.md).

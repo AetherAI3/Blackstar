@@ -6,7 +6,7 @@ from pathlib import Path
 from html import escape as e
 import json, re
 ROOT = Path(__file__).resolve().parents[1]
-BASE = 'https://aetherai3.github.io/Blackstar/'
+from site_config import BASE
 VERSION = 'hero-deck-2'
 NOSCRIPT_NAV = '<noscript><style>.hamburger{display:none}.nav-container{height:auto;min-height:80px;padding-block:16px;flex-wrap:wrap}.nav-menu{display:flex;position:static;max-height:none;overflow:visible;width:100%;flex-wrap:wrap}.nav-flyout{position:static;width:100%;max-height:none}.nav-dropdown[open]{width:100%}</style></noscript>'
 SERVICES = [

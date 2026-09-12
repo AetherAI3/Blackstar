@@ -5,7 +5,7 @@ from urllib.parse import urlsplit, unquote
 import json
 import xml.etree.ElementTree as ET
 ROOT=Path(__file__).resolve().parents[1]
-BASE='https://aetherai3.github.io/Blackstar/'
+from site_config import BASE
 class Page(HTMLParser):
  def __init__(self):
   super().__init__(); self.ids=[];self.refs=[];self.canonical=[];self.json=[];self.capture=False;self.buffer='';self.h1=0
