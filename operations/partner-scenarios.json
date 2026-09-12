@@ -1,0 +1,5 @@
+[
+  {"id":"managed-project-50-percent-specialist","net_service_revenue_cents":400000,"partner_fee_cents":200000,"founder_labor_cents":48000,"direct_cost_cents":10000,"payment_fees_cents":13260,"referral_bps":500,"referral_cap_cents":50000,"risk_reserve_bps":500,"target_retained_bps":2000},
+  {"id":"same-project-60-percent-specialist","net_service_revenue_cents":400000,"partner_fee_cents":240000,"founder_labor_cents":48000,"direct_cost_cents":10000,"payment_fees_cents":13260,"referral_bps":500,"referral_cap_cents":50000,"risk_reserve_bps":500,"target_retained_bps":2000},
+  {"id":"refund-stress-fixed-obligations","net_service_revenue_cents":320000,"partner_fee_cents":200000,"founder_labor_cents":48000,"direct_cost_cents":10000,"payment_fees_cents":13260,"referral_bps":500,"referral_cap_cents":50000,"risk_reserve_bps":500,"target_retained_bps":2000}
+]

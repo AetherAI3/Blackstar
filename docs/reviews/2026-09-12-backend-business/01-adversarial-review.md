@@ -1,0 +1,36 @@
+# Round 1 — REVISE
+
+Date: 2026-09-12. Independent skeptical business/security review. Scope and rubric: [intake](00-review-intake.md). This review read the stable business plan, package/evidence/partner documents, catalog/calculators, reference backend sources/tests/schema/contracts, root README, ratchet and verification script. It did not modify any target or provision a provider.
+
+**Completeness: 6/10.** C2, C3, C4, C5, C8 and C10 satisfy the proposed-scope rubric. C1, C6, C7 and C9 require the fixes below. This tally describes checks, not confidence or production security. One HIGH design inconsistency remains; no active production vulnerability is claimed because all provider adapters are disabled.
+
+## Findings
+
+| ID | Severity | Evidence and failure | Required revision |
+| --- | --- | --- | --- |
+| R1 | HIGH, reference design | [SQL quotes/stages/mirrors](../../../backend/schema/001_proposed.sql) has quote primary key `(organization_id, project_id, id)` and only a secondary unique key adding `version`. A second immutable version with the same quote ID conflicts with the primary key; stages/mirrors also omit version in their identity. [API state contract](../../../backend/docs/API-CONTRACT.md) promises a new immutable version on scope change, while [billing plans](../../../backend/src/billing.mjs) put version in payment idempotency. Updating the existing row instead would conflict with the promised accepted-snapshot immutability and existing stage reference. | Choose and document one model. Either model quote revision identity in all relevant primary/foreign/unique keys and commands, or explicitly use a new immutable quote ID for every revision and model supersession/credits consistently. Keep old accepted scopes and invoices intact; no migration-execution claim without a database test. |
+| R2 | MEDIUM, namespace correctness | [Invoice planner](../../../backend/src/billing.mjs) creates `invoice/${quote.id}/v${quote.version}/${stage.key}`. The SQL permits equal quote IDs in different organizations/projects. A reviewer-created synthetic scenario produced `invoice/same_id/v1/deposit` for both `org_a/p_org_a` and `org_b/p_org_b`. Both passed their own authorized acceptance path. | Namespace the permanent command key by organization and project as well as immutable quote/stage identity; add a regression with equal quote IDs in different allowed tenant/project scopes. Do not depend on a probable UUID noncollision to paper over a contract mismatch. |
+| R3 | MEDIUM, contradictory operational rule | [Stripe setup](../../../billing/STRIPE-SETUP.md), “Quote authorization before collection,” requires a signed non-expired quote for payment. [API contract](../../../backend/docs/API-CONTRACT.md) explicitly says an accepted quote's offer expiry does not invalidate later agreed milestones. Operators following the first instruction could block an earned final milestone after the offer window. | State that offer expiry prevents new acceptance; accepted scope remains payable at its approved stages until explicitly cancelled/superseded under agreement. Align setup, API and tests. |
+| R4 | MEDIUM, release completeness | Reviewer ran `PYTHONDONTWRITEBYTECODE=1 python3 scripts/verify-business.py`: catalog check passed, 12 billing + 5 partner + 23 backend tests passed, then the gate exited 1 because the review README linked a missing `backend/docs/VERIFICATION.md`. This is incomplete packaging, not an arithmetic failure. | Finish the linked verification artifact and re-run the documented top-level gate to completion. Record actual measurements and untested surfaces. |
+
+R1 was established by tracing the declared relational keys, not by executing the SQL. R2 was reproduced through pure module calls with synthetic contexts, accepted quotes and stage plans; no HTTP request, provider request, charge or client record was involved. R4 captures the observed state during this review, even if a builder finishes that file afterward.
+
+## Attacks that the current proposal survives
+
+- Price scope and demand: [pricing evidence](../../business/PRICING-EVIDENCE.md) acknowledges cheaper alternatives, distinguishes published offers from proven demand and labels loaded labor/rate assumptions. The development sprint is discovery-gated; public checkout is disabled. No universal low-price app promise remains.
+- Economics: [partner model](../../business/TEAM-AND-ECONOMICS.md) costs founder work, distinguishes markup from margin, separates reserve from profit, caps the referral, avoids automatic equity, and does not assume client collection risk can be pushed to a collaborator. [Partner tests](../../../operations/test_partner_economics.py) include already-paid referral/refund exposure. The fixed-price package does not silently shrink when internal time runs over.
+- Trust boundaries: [domain tests](../../../backend/test/domain.test.mjs) deny cross-tenant/revoked/missing-project access, browser price/paid-state fields, unaccepted invoices, stale approvals, unsafe downloads, and missing provider ports. Monthly invoice execution now explicitly rejects rather than reusing a first-period key.
+- Provider uncertainty: [webhook tests](../../../backend/test/webhooks.test.mjs) cover failed durability, timeout, duplicate/concurrent/old events, rollback and partial refunds. Raw bytes are delegated unchanged to a signature adapter; the signature itself and transaction isolation are not falsely presented as implemented production integrations.
+- Evidence discipline: [ratchet](RATCHET.md) labels repeated arithmetic as deterministic output rather than conversion evidence. The [idea arena](IDEA-ARENA-INDEPENDENT.md) labels selection scores as judgments and supplies disconfirmation criteria.
+
+## Independent source spot checks
+
+On September 12, 2026 the reviewer reopened primary pages. Tom the Designer's Starter page showed five pages starting at $1,750 and the 50%/50% payment schedule, consistent with the documented alternative; this does not validate Black Star's demand. [Seller's package page](https://tomthedesigner.com/web-design-packages/).
+
+Stripe's published Starter invoice rate was 0.4%, with Payments pricing additional; Billing's pay-as-you-go rate was 0.7% and excluded one-off invoices. These support the model's separated software fees, subject to its explicit account/product assumptions. [Invoicing pricing](https://stripe.com/invoicing/pricing), [Billing pricing](https://stripe.com/billing/pricing).
+
+The reviewer spot-checked these claims, not every seller contract, client market or provider setting. The wider source research belongs to the pricing artifact. No legal classification outcome, sales conversion, account-specific fee, SQL execution, browser portal test or real email/payment delivery was independently verified.
+
+## Re-attack required
+
+Builders should preserve their written responses, resolve R1–R4, then request round 2. The reviewer will check changed semantics, rerun the top-level gate and the namespace counterexample, and look for collateral scope changes. No new rubric or weaker exit bar is introduced. Silent-agreement guard: **not triggered**; this round reports cited, independently reproduced disagreements.

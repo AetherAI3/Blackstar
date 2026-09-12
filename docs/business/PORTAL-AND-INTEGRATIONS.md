@@ -2,6 +2,8 @@
 
 Status: proposed implementation contract. Brandon owns development, backend, release, and billing. Keep the current public site independent of the private portal so a portal incident does not remove the agency’s contact page.
 
+The September 12 [backend reference skeleton](../../backend/README.md) makes selected domain rules executable offline. [Billing](../../billing/README.md) supplies proposed packages and exact schedules; [the roadmap](IMPLEMENTATION-ROADMAP.md) lists remaining adapter, database and release work. None is a deployed portal or payment integration.
+
 ## Product boundary
 
 The portal answers four client questions: What is happening? What do you need from me? What am I reviewing? What is due? It centralizes asset collection, versioned feedback, approvals, and invoice visibility. Initial release excludes live chat, AI agents, a full CRM, custom card processing, and elaborate project-management features.

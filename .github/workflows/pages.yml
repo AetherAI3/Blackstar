@@ -27,6 +27,8 @@ jobs:
           node --check shared.js
           node --check script.js
           node --check guide.js
+      - name: Verify proposed backend and billing foundation
+        run: python3 scripts/verify-business.py
       - name: Prepare static site
         run: |
           mkdir _site
@@ -39,4 +41,3 @@ jobs:
       - name: Deploy site
         id: deployment
         uses: actions/deploy-pages@v4
-

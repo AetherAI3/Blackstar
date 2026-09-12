@@ -4,49 +4,64 @@
   </a>
 </p>
 
-<p align="center"><strong>Where Talent Meets Empire</strong><br>Independent creative & digital agency.</p>
+<p align="center"><strong>Your next move. Made real.</strong><br>Websites, software, media and brand growth.</p>
 
 <p align="center">
-  <a href="https://aetherai3.github.io/Blackstar/"><img src="https://img.shields.io/badge/EXPLORE_THE_SITE-D6BA78?style=for-the-badge&logo=github&logoColor=0A0A0B" alt="Explore the site"></a>
-  <a href="https://github.com/AetherAI3/Blackstar/actions/workflows/pages.yml"><img src="https://img.shields.io/github/actions/workflow/status/AetherAI3/Blackstar/pages.yml?style=for-the-badge&label=DEPLOY&color=D6BA78" alt="GitHub Pages deployment status"></a>
+  <a href="https://aetherai3.github.io/Blackstar/">Visit Black Star</a> ·
+  <a href="docs/business/BUSINESS-PLAN.md">Business blueprint</a> ·
+  <a href="docs/business/PRICING-AND-PACKAGES.md">Packages & pricing</a> ·
+  <a href="backend/README.md">Backend skeleton</a>
 </p>
 
----
+## What we build
 
-## Your next move. Made real.
+Black Star is a creative and digital agency working directly with founders, brands and small businesses. We turn a clear brief into a working website, useful software, a strong visual identity or a consistent content operation—with defined scope, visible progress and a complete handoff.
 
-Black Star brings creative production and software engineering together. We work directly with founders, creators, and businesses on websites, brands, cinematic content, and AI automation — from a focused freelance project to support for a broader launch.
-
-### What we do
-
-| Creative | Digital |
-| --- | --- |
-| Brand identity & design | Websites & web apps |
-| Photography & video | AI agents & automation |
-| Social content & management | Marketing & launch support |
-
-### The people behind the work
-
-| Founder | Focus | Find us |
+| Lead | Responsibility | Find us |
 | --- | --- | --- |
-| **Edwin D.** · Co-Founder & Creative Director | Photography, video, brand direction | [@5.0win](https://instagram.com/5.0win) · [East Coast Chromes](https://eastcoastchromes.com) |
-| **Brandon B.** · Co-Founder & Lead Engineer | Full-stack software, AI agents, connected systems | [@zo.trades2](https://instagram.com/zo.trades2) · [Aether AI](https://aethersystems.net) |
+| **Brandon B. — Development & Systems** | Aether AI developer; rapid website/software delivery, backend, automation, technical scaling and billing | [@zo.trades2](https://instagram.com/zo.trades2) · [Aether AI](https://aethersystems.net) |
+| **Edwin D. — Media & Brand** | Media management, photography/video, social content, creative direction and brand scaling | [@5.0win](https://instagram.com/5.0win) · [East Coast Chromes](https://eastcoastchromes.com) |
 
-### Explore our work & ventures
+Our work and ventures: [Aether AI](https://aethersystems.net) · [East Coast Chromes](https://eastcoastchromes.com) · [Food Trackers](https://foodtrackers.org). These are founder projects and ventures; we do not present them as invented client engagements.
 
-[**Aether AI ↗**](https://aethersystems.net) — AI tools, developer infrastructure, and software.  
-[**East Coast Chromes ↗**](https://eastcoastchromes.com) — Automotive photography and cinematic media.  
-[**Food Trackers ↗**](https://foodtrackers.org) — Meal planning, macros, and calorie tracking.
+## Start with the business system
 
----
+**September 12, 2026 baseline: proposed prices and operations, with executable reference code.** Pricing is researched and costed, but still requires founder approval before it becomes a live offer. This repository contains no live Stripe prices, payment collection, Resend connection, provisioned client portal or executed company agreements.
 
-### Website
+| Read | Answers |
+| --- | --- |
+| [Business blueprint](docs/business/BUSINESS-PLAN.md) | Who we serve, what we sell, what we do not do, acquisition and the first 90 days |
+| [Packages & deposits](docs/business/PRICING-AND-PACKAGES.md) | Exact proposed deliverables, prices, opening payments and recurring scope |
+| [Competitor & pricing evidence](docs/business/PRICING-EVIDENCE.md) | Published freelancer/agency comparisons, scope differences and fee sources |
+| [Team & agency economics](docs/business/TEAM-AND-ECONOMICS.md) | Founder roles, collaborator pay, referral fees, agency premiums and worked math |
+| [Operating specification](docs/business/OPERATING-SPEC.md) | Decision rights, business setup, lead-to-delivery process and commercial controls |
+| [Scope & delivery templates](docs/business/SCOPE-AND-DELIVERY.md) | Revision limits, change orders, acceptance and handoff |
+| [Implementation roadmap](docs/business/IMPLEMENTATION-ROADMAP.md) | The smallest useful path from manual operations to a private portal |
+| [Review & ratchet record](docs/reviews/2026-09-12-backend-business/README.md) | Independent idea arena, adversarial findings, fixes, checks and remaining limits |
 
-A static site with the supplied Black Star logo, a responsive layout, six service cards that stack as you scroll on desktop, project previews, portfolio filters, founder links, and an email-draft inquiry flow. Reduced-motion preferences and keyboard navigation are supported.
+The machine-readable [billing catalog](billing/catalog.json) is the proposed price source of truth. [Stripe setup](billing/STRIPE-SETUP.md) explains how to turn approved offers into project-bound invoices and recurring plans. A deposit is part of the agreed total; monthly prepayment is a service-period charge. Neither is a generic unrestricted checkout.
 
-**[Read the agency & website specification](docs/BLACK-STAR-AGENCY-SPEC.md)** · [Verification record](docs/VERIFICATION.md) · [Asset provenance](assets/README.md)
+## Proposed backend structure
 
-Run locally:
+The public site stays simple. Private client operations get a separate API and authenticated data store. The reference code exercises domain rules locally; provider adapters fail closed until implemented and configured.
+
+| Location | Purpose |
+| --- | --- |
+| [backend/](backend/README.md) | Proposed API/data contracts, tenant/role checks, quote and invoice rules, webhook/reconciliation boundaries and local tests |
+| [billing/](billing/README.md) | Versioned USD catalog, deposit schedules, pricing calculator and Stripe setup plan |
+| [operations/](operations/partner_economics.py) | Synthetic collaborator economics and one-lever deposit experiment |
+| [docs/business/](docs/business/BUSINESS-PLAN.md) | Business model, ownership, delivery and development integration plans |
+| [docs/references/loops/](docs/references/loops/README.md) | Supplied loop documents and the bounded adaptation used here |
+
+Brandon owns backend and billing implementation. Edwin owns media workflow and creative acceptance. The [portal contract](docs/business/PORTAL-AND-INTEGRATIONS.md) covers asset collection, versioned feedback, approvals and invoice visibility. The [Resend specification](docs/CONTACT-AND-RESEND-SPEC.md) covers reliable intake and notifications. No client data or credentials belong in this public repository.
+
+## Website
+
+The live site has six service pages, founder profiles and links, project previews, a deterministic service guide, rounded dropdown navigation, dark gold atmosphere and accessible reduced-motion behavior. The inquiry form prepares an email draft or copies a brief; it does not send or store an inquiry. The supplied recipient is `hello@blackstarentertainment.com`; verify the mailbox is monitored before relying on it.
+
+[How we work](https://aetherai3.github.io/Blackstar/how-we-work/) · [Service guides](https://aetherai3.github.io/Blackstar/guides/) · [Agency & website specification](docs/BLACK-STAR-AGENCY-SPEC.md) · [Search and page architecture](docs/SERVICE-PAGES-AND-SEARCH.md) · [Visual proof & SEO/GEO](docs/business/VISIBILITY-AND-PROOF.md) · [Website verification](docs/VERIFICATION.md) · [Asset provenance](assets/README.md)
+
+Run the public site locally:
 
 ```bash
 git clone https://github.com/AetherAI3/Blackstar.git
@@ -54,54 +69,19 @@ cd Blackstar
 python3 -m http.server 8080
 ```
 
-Open `http://localhost:8080`. No build step or package installation is required.
+Open `http://localhost:8080`. No package installation or build step is needed for the static site. This local server is for development only; the deployed Pages workflow publishes a selected set of public files.
 
-| Path | Purpose |
-| --- | --- |
-| `index.html` | Page content and navigation |
-| `styles.css` | Responsive design and scroll presentation |
-| `script.js` | Menu, filters, inquiry preparation, starfield |
-| `assets/` | Supplied logo and optimized project images |
-| `docs/` | Agency specification and verification notes |
-| `.github/workflows/pages.yml` | Deploy the static site to GitHub Pages |
+Run the proposal/reference checks:
 
-### Deployment and contact
+```bash
+python3 scripts/verify-business.py
+```
 
-Pushes to `main` run the existing Pages workflow and publish the site files and assets. Keep GitHub Pages enabled for this repository. Site: **https://aetherai3.github.io/Blackstar/**.
-
-The inquiry form opens the visitor’s email app; it does not send or store messages. The supplied recipient is `hello@blackstarentertainment.com`. Confirm that mailbox is monitored before relying on email inquiries; both founders’ Instagram links remain available.
-
-### Guided project inquiries
-
-A small automated service guide helps visitors explore the six services and carries their selection into the contact form. It runs locally without an AI service or chat storage. The form includes timing, message-length feedback, and a copy-brief fallback. Brandon’s team card uses his supplied portrait.
-
-[Contact flow and Resend integration specification](docs/CONTACT-AND-RESEND-SPEC.md) covers the proposed server endpoint, request validation, spam controls, provider setup, retry behavior, and release checks. **Resend is not connected yet**; the current form still prepares an email draft.
-
-### Business and delivery foundation
-
-[**Operating specification →**](docs/business/OPERATING-SPEC.md)
-
-The next-stage plan defines Brandon’s ownership of web development, backend systems, and billing; Edwin’s creative production responsibilities; and the shared path from inquiry to verified delivery.
-
-| Blueprint | Covers |
-| --- | --- |
-| [Client portal & integrations](docs/business/PORTAL-AND-INTEGRATIONS.md) | Private assets, versioned feedback, approvals, invoice tracking, and development gates |
-| [Scope & delivery templates](docs/business/SCOPE-AND-DELIVERY.md) | Revision boundaries, technical scope, change requests, and complete handoffs |
-| [Visibility & proof](docs/business/VISIBILITY-AND-PROOF.md) | Real case studies, SEO/GEO, visual evidence, and measurement |
-
-These documents are proposed operating defaults and implementation specifications. They do not establish a legal entity or indicate that the portal, billing integration, or SEO roadmap has been implemented.
-
-### Service pages and search foundations
-
-[How we work](https://aetherai3.github.io/Blackstar/how-we-work/) · [Service guides & all documentation](https://aetherai3.github.io/Blackstar/guides/)
-
-Six service pages explain fit, deliverables, ownership, exclusions, and handoff. The shared footer links to each service and all open documentation. [Release specification](docs/SERVICE-PAGES-AND-SEARCH.md) records the page map, canonical metadata, sitemap, and remaining search ownership/indexing work.
-
-To update generated pages and footer links:
+To edit generated service pages/navigation/footer:
 
 ```bash
 python3 scripts/build-pages.py
 python3 scripts/verify-site.py
 ```
 
-Edit content in `scripts/build-pages.py`; commit the generated HTML and sitemap with it. `shared.js` handles navigation and ambient effects across pages. The Pages workflow checks local routes and includes the new directories.
+Edit the generator and commit the generated HTML/sitemap together. `shared.js` handles common navigation and atmosphere, `script.js` handles home interactions, and `guide.js` handles the service guide. Pushes to `main` run verification and deploy only the selected static site directories to GitHub Pages. Backend modules, catalogs, tests and operational records are not a deployed backend.

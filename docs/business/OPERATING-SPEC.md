@@ -1,13 +1,18 @@
 # Black Star — business and delivery foundation
 
-**Planning baseline · September 10, 2026 · Proposed operating defaults, not executed agreements.**
+**Planning baseline · updated September 12, 2026 · Proposed operating defaults, not executed agreements.**
 
-Black Star is a two-founder creative and digital agency. The offer is direct access to the people doing the work: Edwin leads creative production; Brandon builds the websites, software, backend integrations, and billing operations. Deliver a defined result, prove it works, and give the client a usable handoff.
+Black Star is a two-founder creative and digital agency. Brandon is the Aether AI developer and leads rapid website/software delivery, backend systems and billing. Edwin is the media manager and leads media production, content and brand scaling. Deliver a defined result, prove it works, and give the client a usable handoff.
 
 ## Read this system
 
 | Document | Use |
 | --- | --- |
+| [Business blueprint](BUSINESS-PLAN.md) | Customer focus, launch offers, acquisition and first 90 days |
+| [Proposed packages and pricing](PRICING-AND-PACKAGES.md) | Scoped prices, deposits, monthly boundaries and cost assumptions |
+| [Competitive evidence](PRICING-EVIDENCE.md) | Published alternatives and the limits of each comparison |
+| [Team and agency economics](TEAM-AND-ECONOMICS.md) | Collaborator pay, referral terms, agency premiums and verified math |
+| [Implementation roadmap](IMPLEMENTATION-ROADMAP.md) | From manual operations to tested integrations |
 | [Portal and integrations](PORTAL-AND-INTEGRATIONS.md) | Development architecture, permissions, data, billing, and build gates |
 | [Scope and delivery templates](SCOPE-AND-DELIVERY.md) | Turn an inquiry into a bounded project and verified handoff |
 | [Visibility and visual proof](VISIBILITY-AND-PROOF.md) | Case studies, SEO, generative-engine visibility, and measurement |
@@ -61,7 +66,7 @@ Sell bounded engagements rather than an unlimited list of capabilities. The exis
 | Automation implementation | A tested process connecting named systems | Brandon | Triggers, actions, exceptions, usage limits, human approvals |
 | Ongoing care | Maintenance or recurring creative allocation | Relevant lead | Monthly capacity, response window, exclusions, rollover policy |
 
-A mixed engagement combines named line items under one project lead. Each proposal explicitly separates launch work from ongoing hosting, usage, support, and future features. Choose prices only after estimating labor, third-party costs, uncertainty, and delivery capacity; do not publish guessed rates.
+A mixed engagement combines named line items under one project lead. Each proposal explicitly separates launch work from ongoing hosting, usage, support, and future features. The [proposed catalog](../../billing/catalog.json) now supplies costed starting prices and payment schedules. Validate actual scope, third-party costs and capacity before accepting a quote; founder approval is still needed to publish or activate these proposed prices.
 
 ## Lead to delivery
 
@@ -78,7 +83,7 @@ flowchart TD
 
 1. **Qualify:** record goal, decision-maker, budget range, timing, assets, and service fit. Route creative to Edwin, technical to Brandon, and mixed work to both. No automatic delivery-date promise.
 2. **Scope:** enumerate outputs, exclusions, dependencies, revision allowance, milestones, and acceptance evidence. Identify unfamiliar integrations early; use a separately agreed discovery phase where necessary.
-3. **Book:** require signed scope and the agreed opening payment before reserving production time. The invoice schedule belongs in the proposal; no assumed deposit percentage.
+3. **Book:** require signed scope and the agreed opening payment before reserving production time. Standard two-part proposed projects use 50% opening / 50% balance; discovery is prepaid and recurring offers cover one authorized month. The signed quote controls the actual schedule, including any approved custom milestones.
 4. **Kick off:** name the approver, request assets/access, agree communication cadence, and set milestone dates after dependencies are ready.
 5. **Deliver visibly:** give one concise weekly update: completed, next, waiting on you, and any scope/date impact. Share an approved preview or contact sheet rather than raw internal activity.
 6. **Review:** collect one consolidated feedback list per round. Tag each item as included correction, revision, question, or scope change.
@@ -105,4 +110,4 @@ Recurring work needs an explicit service period and scope: hosting ownership, mo
 | 4 — proof and acquisition | First authorized case study and indexable service pages | Evidence attached, publication permission recorded, crawl checks pass |
 | 5 — recurring care | Support queue, renewal tracking, maintenance checklist | Restore rehearsal and a complete monthly care report |
 
-The portal, payment integration, case-study outcomes, and company registration are **not implemented or verified by this specification**. The public site, portrait, deterministic guide, and email-draft flow are already present.
+The [backend reference skeleton](../../backend/README.md), [billing catalog/calculator](../../billing/README.md) and [review record](../reviews/2026-09-12-backend-business/README.md) now support this proposal. They do not provision the portal, activate payment/email services, establish the company or verify client outcomes. The public site, portrait, deterministic guide and email-draft flow are already present.

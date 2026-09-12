@@ -1,0 +1,11 @@
+{
+  "name": "blackstar-proposed-backend",
+  "private": true,
+  "type": "module",
+  "description": "Offline reference domain skeleton; no live API or provider adapters",
+  "scripts": {
+    "test": "node --test",
+    "coverage": "node --test --experimental-test-coverage",
+    "mutation": "node scripts/mutation.mjs"
+  }
+}

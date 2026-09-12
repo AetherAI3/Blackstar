@@ -1,0 +1,64 @@
+{
+  "status": "proposal-only",
+  "fixture": {
+    "project_total_cents": 350000,
+    "pre_review_labor_budget_cents": 117000,
+    "pre_review_direct_cost_cents": 5000,
+    "payment_and_invoice_bps": 330,
+    "fixed_fee_cents": 30,
+    "payments": 2
+  },
+  "tolerance_cents": 1,
+  "baseline_runs": [
+    {
+      "opening_bps": 3000,
+      "opening_cents": 105000,
+      "balance_cents": 245000,
+      "funding_gap_or_surplus_cents": -20495,
+      "total_payment_fees_cents": 11610,
+      "sums_to_total": true
+    },
+    {
+      "opening_bps": 3000,
+      "opening_cents": 105000,
+      "balance_cents": 245000,
+      "funding_gap_or_surplus_cents": -20495,
+      "total_payment_fees_cents": 11610,
+      "sums_to_total": true
+    },
+    {
+      "opening_bps": 3000,
+      "opening_cents": 105000,
+      "balance_cents": 245000,
+      "funding_gap_or_surplus_cents": -20495,
+      "total_payment_fees_cents": 11610,
+      "sums_to_total": true
+    }
+  ],
+  "candidate_runs": [
+    {
+      "opening_bps": 5000,
+      "opening_cents": 175000,
+      "balance_cents": 175000,
+      "funding_gap_or_surplus_cents": 47195,
+      "total_payment_fees_cents": 11610,
+      "sums_to_total": true
+    },
+    {
+      "opening_bps": 5000,
+      "opening_cents": 175000,
+      "balance_cents": 175000,
+      "funding_gap_or_surplus_cents": 47195,
+      "total_payment_fees_cents": 11610,
+      "sums_to_total": true
+    },
+    {
+      "opening_bps": 5000,
+      "opening_cents": 175000,
+      "balance_cents": 175000,
+      "funding_gap_or_surplus_cents": 47195,
+      "total_payment_fees_cents": 11610,
+      "sums_to_total": true
+    }
+  ]
+}

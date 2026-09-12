@@ -1,0 +1,615 @@
+{
+  "schema_version": 1,
+  "catalog_version": "2026-09-12.proposed-v1",
+  "status": "proposed",
+  "currency": "usd",
+  "effective_date": null,
+  "research_date": "2026-09-12",
+  "public_checkout_enabled": false,
+  "notes": [
+    "Internal proposals, not public offers or active Stripe prices.",
+    "Amounts exclude applicable tax and client-owned provider/advertising costs.",
+    "Monthly amount is prepayment for one service period, never a refundable security deposit.",
+    "No live product IDs, checkout links, account credentials, or customer data belong here."
+  ],
+  "fee_models": {
+    "domestic_card": {
+      "rate_bps": 290,
+      "fixed_cents": 30
+    },
+    "one_time_invoice": {
+      "additional_rate_bps": 40
+    },
+    "monthly_billing": {
+      "additional_rate_bps": 70
+    },
+    "ach_debit": {
+      "rate_bps": 80,
+      "cap_cents": 500
+    }
+  },
+  "products": [
+    {
+      "id": "website_launch",
+      "name": "Website launch",
+      "category": "web",
+      "tier": "core",
+      "owner": "Brandon",
+      "status": "proposed",
+      "billing_mode": "one_time",
+      "amount_cents": 350000,
+      "requires_approved_scope": true,
+      "payment_schedule": [
+        {
+          "key": "deposit",
+          "label": "Opening project payment (50%)",
+          "amount_cents": 175000,
+          "due": "After signed scope and before capacity is reserved"
+        },
+        {
+          "key": "balance",
+          "label": "Final project payment (50%)",
+          "amount_cents": 175000,
+          "due": "After acceptance and before agreed final handoff"
+        }
+      ],
+      "scope": [
+        "Up to 5 agreed routes, up to 3 layout templates, one language",
+        "One contact workflow, launch metadata and sitemap",
+        "Two consolidated design rounds; desktop/mobile QA and handoff"
+      ],
+      "exclusions": [
+        "Commerce, login, migrations, bespoke backend, copywriting, hosting and ongoing SEO"
+      ],
+      "economics": {
+        "delivery_hours": 28,
+        "loaded_hourly_cost_cents": 6500,
+        "contingency_bps": 1500,
+        "direct_cost_cents": 5000,
+        "target_contribution_bps": 3500
+      },
+      "stripe": {
+        "product_key": "bs_website_launch_v1",
+        "prices": [
+          {
+            "lookup_key": "bs_website_launch_deposit_usd_v1",
+            "purpose": "deposit",
+            "unit_amount_cents": 175000,
+            "recurring_interval": null
+          },
+          {
+            "lookup_key": "bs_website_launch_balance_usd_v1",
+            "purpose": "balance",
+            "unit_amount_cents": 175000,
+            "recurring_interval": null
+          }
+        ]
+      }
+    },
+    {
+      "id": "development_sprint",
+      "name": "Development sprint",
+      "category": "development",
+      "tier": "core",
+      "owner": "Brandon",
+      "status": "proposed",
+      "billing_mode": "one_time",
+      "amount_cents": 450000,
+      "requires_approved_scope": true,
+      "payment_schedule": [
+        {
+          "key": "deposit",
+          "label": "Opening project payment (50%)",
+          "amount_cents": 225000,
+          "due": "After signed scope and before capacity is reserved"
+        },
+        {
+          "key": "balance",
+          "label": "Final project payment (50%)",
+          "amount_cents": 225000,
+          "due": "After acceptance and before agreed final handoff"
+        }
+      ],
+      "scope": [
+        "One pre-scoped feature or workflow in a supported codebase",
+        "Named roles, acceptance tests, staging, release and handoff",
+        "Accepted technical discovery and bounded backlog required before quote; do not sell an undefined application"
+      ],
+      "exclusions": [
+        "Entire MVP, native apps, regulated workloads, undefined integrations, 24/7 support"
+      ],
+      "economics": {
+        "delivery_hours": 32,
+        "loaded_hourly_cost_cents": 7000,
+        "contingency_bps": 1500,
+        "direct_cost_cents": 7500,
+        "target_contribution_bps": 3500
+      },
+      "stripe": {
+        "product_key": "bs_development_sprint_v1",
+        "prices": [
+          {
+            "lookup_key": "bs_development_sprint_deposit_usd_v1",
+            "purpose": "deposit",
+            "unit_amount_cents": 225000,
+            "recurring_interval": null
+          },
+          {
+            "lookup_key": "bs_development_sprint_balance_usd_v1",
+            "purpose": "balance",
+            "unit_amount_cents": 225000,
+            "recurring_interval": null
+          }
+        ]
+      },
+      "prerequisites": [
+        "accepted_technical_discovery",
+        "approved_bounded_backlog"
+      ]
+    },
+    {
+      "id": "content_session",
+      "name": "Content session",
+      "category": "content",
+      "tier": "core",
+      "owner": "Edwin",
+      "status": "proposed",
+      "billing_mode": "one_time",
+      "amount_cents": 120000,
+      "requires_approved_scope": true,
+      "payment_schedule": [
+        {
+          "key": "deposit",
+          "label": "Opening project payment (50%)",
+          "amount_cents": 60000,
+          "due": "After signed scope and before capacity is reserved"
+        },
+        {
+          "key": "balance",
+          "label": "Final project payment (50%)",
+          "amount_cents": 60000,
+          "due": "After acceptance and before agreed final handoff"
+        }
+      ],
+      "scope": [
+        "One 2-hour local shoot, one location, agreed shot list",
+        "12 edited photos and 2 vertical edits up to 30 seconds each",
+        "Two consolidated edit rounds; one approved format per deliverable"
+      ],
+      "exclusions": [
+        "Travel outside agreed area, talent, studio hire, drone, raw files, reshoots, posting"
+      ],
+      "economics": {
+        "delivery_hours": 10,
+        "loaded_hourly_cost_cents": 4500,
+        "contingency_bps": 1500,
+        "direct_cost_cents": 10000,
+        "target_contribution_bps": 3500
+      },
+      "stripe": {
+        "product_key": "bs_content_session_v1",
+        "prices": [
+          {
+            "lookup_key": "bs_content_session_deposit_usd_v1",
+            "purpose": "deposit",
+            "unit_amount_cents": 60000,
+            "recurring_interval": null
+          },
+          {
+            "lookup_key": "bs_content_session_balance_usd_v1",
+            "purpose": "balance",
+            "unit_amount_cents": 60000,
+            "recurring_interval": null
+          }
+        ]
+      }
+    },
+    {
+      "id": "social_content_month",
+      "name": "Social content cycle",
+      "category": "social",
+      "tier": "core",
+      "owner": "Edwin",
+      "status": "proposed",
+      "billing_mode": "monthly",
+      "amount_cents": 150000,
+      "requires_approved_scope": true,
+      "payment_schedule": [
+        {
+          "key": "monthly",
+          "label": "Monthly service period",
+          "amount_cents": 150000,
+          "due": "Before each agreed monthly service period; explicit renewal consent required"
+        }
+      ],
+      "scope": [
+        "8 static/carousel assets (up to 5 panels each) plus 4 edits up to 30 seconds from usable client-supplied footage",
+        "Captions, calendar, scheduling to up to 2 agreed platforms",
+        "12 original assets total, adapted cross-posts up to 24 placements; two batch review rounds; monthly report"
+      ],
+      "exclusions": [
+        "On-site shoots, daily inbox/community management, ads, influencer fees, promised reach or sales"
+      ],
+      "economics": {
+        "delivery_hours": 16,
+        "loaded_hourly_cost_cents": 4500,
+        "contingency_bps": 1500,
+        "direct_cost_cents": 5000,
+        "target_contribution_bps": 3500
+      },
+      "stripe": {
+        "product_key": "bs_social_content_month_v1",
+        "prices": [
+          {
+            "lookup_key": "bs_social_content_month_monthly_usd_v1",
+            "purpose": "monthly",
+            "unit_amount_cents": 150000,
+            "recurring_interval": "month"
+          }
+        ]
+      }
+    },
+    {
+      "id": "paid_discovery",
+      "name": "Project discovery",
+      "category": "discovery",
+      "tier": "discovery",
+      "owner": "Brandon",
+      "status": "proposed",
+      "billing_mode": "one_time",
+      "amount_cents": 50000,
+      "requires_approved_scope": true,
+      "payment_schedule": [
+        {
+          "key": "prepayment",
+          "label": "Discovery prepayment",
+          "amount_cents": 50000,
+          "due": "After approved scope and before workshop"
+        }
+      ],
+      "scope": [
+        "One workshop and bounded review of supplied assets or code",
+        "Written scope, risk/dependency list, acceptance plan and build estimate"
+      ],
+      "exclusions": [
+        "Production implementation, exhaustive audit, automatic credit against future work"
+      ],
+      "economics": {
+        "delivery_hours": 4,
+        "loaded_hourly_cost_cents": 6500,
+        "contingency_bps": 1500,
+        "direct_cost_cents": 0,
+        "target_contribution_bps": 3500
+      },
+      "stripe": {
+        "product_key": "bs_paid_discovery_v1",
+        "prices": [
+          {
+            "lookup_key": "bs_paid_discovery_prepayment_usd_v1",
+            "purpose": "prepayment",
+            "unit_amount_cents": 50000,
+            "recurring_interval": null
+          }
+        ]
+      }
+    },
+    {
+      "id": "website_care",
+      "name": "Website care",
+      "category": "web",
+      "tier": "extension",
+      "owner": "Brandon",
+      "status": "proposed",
+      "billing_mode": "monthly",
+      "amount_cents": 25000,
+      "requires_approved_scope": true,
+      "payment_schedule": [
+        {
+          "key": "monthly",
+          "label": "Monthly service period",
+          "amount_cents": 25000,
+          "due": "Before each agreed monthly service period; explicit renewal consent required"
+        }
+      ],
+      "scope": [
+        "One supported site; monthly update/backup check and status note",
+        "Up to 2 hours total including checks and small edits; no rollover",
+        "Business-day triage target agreed in scope, no response SLA"
+      ],
+      "exclusions": [
+        "Hosting/domain costs, feature development, redesign, incident recovery beyond allowance, 24/7 coverage"
+      ],
+      "economics": {
+        "delivery_hours": 2,
+        "loaded_hourly_cost_cents": 6500,
+        "contingency_bps": 1500,
+        "direct_cost_cents": 1000,
+        "target_contribution_bps": 3000
+      },
+      "stripe": {
+        "product_key": "bs_website_care_v1",
+        "prices": [
+          {
+            "lookup_key": "bs_website_care_monthly_usd_v1",
+            "purpose": "monthly",
+            "unit_amount_cents": 25000,
+            "recurring_interval": "month"
+          }
+        ]
+      }
+    },
+    {
+      "id": "web_growth_month",
+      "name": "Web improvement cycle",
+      "category": "web",
+      "tier": "extension",
+      "owner": "Brandon",
+      "status": "proposed",
+      "billing_mode": "monthly",
+      "amount_cents": 140000,
+      "requires_approved_scope": true,
+      "payment_schedule": [
+        {
+          "key": "monthly",
+          "label": "Monthly service period",
+          "amount_cents": 140000,
+          "due": "Before each agreed monthly service period; explicit renewal consent required"
+        }
+      ],
+      "scope": [
+        "Up to 10 hours total on a prioritized, approved website backlog",
+        "One active task at a time; measurement check and monthly release note",
+        "Small conversion, content or performance improvements; no rollover"
+      ],
+      "exclusions": [
+        "Guaranteed lift, major rebuild, new backend platform, media spend, unlimited tasks"
+      ],
+      "economics": {
+        "delivery_hours": 10,
+        "loaded_hourly_cost_cents": 6500,
+        "contingency_bps": 1500,
+        "direct_cost_cents": 3000,
+        "target_contribution_bps": 3500
+      },
+      "stripe": {
+        "product_key": "bs_web_growth_month_v1",
+        "prices": [
+          {
+            "lookup_key": "bs_web_growth_month_monthly_usd_v1",
+            "purpose": "monthly",
+            "unit_amount_cents": 140000,
+            "recurring_interval": "month"
+          }
+        ]
+      }
+    },
+    {
+      "id": "brand_foundation",
+      "name": "Brand foundation",
+      "category": "brand",
+      "tier": "extension",
+      "owner": "Edwin",
+      "status": "proposed",
+      "billing_mode": "one_time",
+      "amount_cents": 150000,
+      "requires_approved_scope": true,
+      "payment_schedule": [
+        {
+          "key": "deposit",
+          "label": "Opening project payment (50%)",
+          "amount_cents": 75000,
+          "due": "After signed scope and before capacity is reserved"
+        },
+        {
+          "key": "balance",
+          "label": "Final project payment (50%)",
+          "amount_cents": 75000,
+          "due": "After acceptance and before agreed final handoff"
+        }
+      ],
+      "scope": [
+        "Two initial visual directions; one selected identity",
+        "Logo variants, color/type guide and 3 reusable social templates",
+        "Two consolidated rounds and agreed production exports"
+      ],
+      "exclusions": [
+        "Naming, trademark search, packaging, print production, full research strategy, extra concepts"
+      ],
+      "economics": {
+        "delivery_hours": 16,
+        "loaded_hourly_cost_cents": 4500,
+        "contingency_bps": 1500,
+        "direct_cost_cents": 5000,
+        "target_contribution_bps": 3500
+      },
+      "stripe": {
+        "product_key": "bs_brand_foundation_v1",
+        "prices": [
+          {
+            "lookup_key": "bs_brand_foundation_deposit_usd_v1",
+            "purpose": "deposit",
+            "unit_amount_cents": 75000,
+            "recurring_interval": null
+          },
+          {
+            "lookup_key": "bs_brand_foundation_balance_usd_v1",
+            "purpose": "balance",
+            "unit_amount_cents": 75000,
+            "recurring_interval": null
+          }
+        ]
+      }
+    },
+    {
+      "id": "automation_sprint",
+      "name": "Automation sprint",
+      "category": "automation",
+      "tier": "extension",
+      "owner": "Brandon",
+      "status": "proposed",
+      "billing_mode": "one_time",
+      "amount_cents": 280000,
+      "requires_approved_scope": true,
+      "payment_schedule": [
+        {
+          "key": "deposit",
+          "label": "Opening project payment (50%)",
+          "amount_cents": 140000,
+          "due": "After signed scope and before capacity is reserved"
+        },
+        {
+          "key": "balance",
+          "label": "Final project payment (50%)",
+          "amount_cents": 140000,
+          "due": "After acceptance and before agreed final handoff"
+        }
+      ],
+      "scope": [
+        "One bounded workflow, one trigger, up to 2 named third-party systems",
+        "Failure handling, retry limits, human approval for consequential actions",
+        "Acceptance scenarios, runbook and handoff; discovery when needed"
+      ],
+      "exclusions": [
+        "Autonomous high-stakes decisions, unknown APIs, model training, unlimited usage, API/provider charges"
+      ],
+      "economics": {
+        "delivery_hours": 20,
+        "loaded_hourly_cost_cents": 6500,
+        "contingency_bps": 1500,
+        "direct_cost_cents": 5000,
+        "target_contribution_bps": 3500
+      },
+      "stripe": {
+        "product_key": "bs_automation_sprint_v1",
+        "prices": [
+          {
+            "lookup_key": "bs_automation_sprint_deposit_usd_v1",
+            "purpose": "deposit",
+            "unit_amount_cents": 140000,
+            "recurring_interval": null
+          },
+          {
+            "lookup_key": "bs_automation_sprint_balance_usd_v1",
+            "purpose": "balance",
+            "unit_amount_cents": 140000,
+            "recurring_interval": null
+          }
+        ]
+      }
+    },
+    {
+      "id": "landing_page",
+      "name": "Landing page",
+      "category": "web",
+      "tier": "extension",
+      "owner": "Brandon",
+      "status": "proposed",
+      "billing_mode": "one_time",
+      "amount_cents": 150000,
+      "requires_approved_scope": true,
+      "payment_schedule": [
+        {
+          "key": "deposit",
+          "label": "Opening project payment (50%)",
+          "amount_cents": 75000,
+          "due": "After signed scope and before capacity is reserved"
+        },
+        {
+          "key": "balance",
+          "label": "Final project payment (50%)",
+          "amount_cents": 75000,
+          "due": "After acceptance and before agreed final handoff"
+        }
+      ],
+      "scope": [
+        "One page, up to 6 sections using an existing approved brand",
+        "One contact or booking handoff; metadata and responsive QA",
+        "Two consolidated design rounds; client-supplied copy/assets"
+      ],
+      "exclusions": [
+        "Brand creation, custom application, checkout, long-form copywriting, ongoing testing"
+      ],
+      "economics": {
+        "delivery_hours": 12,
+        "loaded_hourly_cost_cents": 6500,
+        "contingency_bps": 1500,
+        "direct_cost_cents": 2500,
+        "target_contribution_bps": 3500
+      },
+      "stripe": {
+        "product_key": "bs_landing_page_v1",
+        "prices": [
+          {
+            "lookup_key": "bs_landing_page_deposit_usd_v1",
+            "purpose": "deposit",
+            "unit_amount_cents": 75000,
+            "recurring_interval": null
+          },
+          {
+            "lookup_key": "bs_landing_page_balance_usd_v1",
+            "purpose": "balance",
+            "unit_amount_cents": 75000,
+            "recurring_interval": null
+          }
+        ]
+      }
+    },
+    {
+      "id": "search_launch",
+      "name": "Search and launch foundation",
+      "category": "marketing",
+      "tier": "extension",
+      "owner": "Brandon + Edwin",
+      "status": "proposed",
+      "billing_mode": "one_time",
+      "amount_cents": 125000,
+      "requires_approved_scope": true,
+      "payment_schedule": [
+        {
+          "key": "deposit",
+          "label": "Opening project payment (50%)",
+          "amount_cents": 62500,
+          "due": "After signed scope and before capacity is reserved"
+        },
+        {
+          "key": "balance",
+          "label": "Final project payment (50%)",
+          "amount_cents": 62500,
+          "due": "After acceptance and before agreed final handoff"
+        }
+      ],
+      "scope": [
+        "One existing site up to 10 indexable routes",
+        "Technical search baseline, metadata, sitemap and honest structured data",
+        "Three service-page briefs, measurement setup/check and handoff"
+      ],
+      "exclusions": [
+        "Backlink purchases, guaranteed rankings or AI citations, ongoing articles, paid campaign management"
+      ],
+      "economics": {
+        "delivery_hours": 9,
+        "loaded_hourly_cost_cents": 6500,
+        "contingency_bps": 1500,
+        "direct_cost_cents": 2500,
+        "target_contribution_bps": 3500
+      },
+      "stripe": {
+        "product_key": "bs_search_launch_v1",
+        "prices": [
+          {
+            "lookup_key": "bs_search_launch_deposit_usd_v1",
+            "purpose": "deposit",
+            "unit_amount_cents": 62500,
+            "recurring_interval": null
+          },
+          {
+            "lookup_key": "bs_search_launch_balance_usd_v1",
+            "purpose": "balance",
+            "unit_amount_cents": 62500,
+            "recurring_interval": null
+          }
+        ]
+      }
+    }
+  ]
+}
