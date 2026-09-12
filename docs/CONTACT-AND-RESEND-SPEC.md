@@ -26,7 +26,7 @@ Configuration owned by the backend:
 
 The public frontend receives only the endpoint URL and bot-challenge site key. The current site origin is `https://aetherai3.github.io`; `/Blackstar/` is a path, not part of the Origin header. Allow any future custom origin only after ownership is confirmed. CORS is not authentication and does not stop direct scripted requests.
 
-Resend requires a verified sending domain. Have the domain owner complete the provider’s DNS verification before enabling delivery. Do not assume the existing `hello@blackstarentertainment.com` address is a verified sender or monitored inbox. [Resend domain setup](https://resend.com/docs/dashboard/domains/introduction).
+Resend requires a verified sending domain. Have the domain owner complete the provider’s DNS verification before enabling delivery. The owner-designated inquiry inbox is `inquiries.blackstarent@gmail.com`; confirm it receives mail. Do not use that Gmail address as the Resend From address. [Resend domain setup](https://resend.com/docs/dashboard/domains/introduction).
 
 ## Request contract
 
