@@ -74,3 +74,13 @@ Decorative layers ignore pointer input and stay out of the accessibility tree. T
 ## Focused hero update
 
 Removed the hero’s agency eyebrow, “The Black Star Standard” caption, brand-signature line, and founders badge. The original logo and its small creative/technology and East Coast footer labels remain. The headline now uses bold Inter with a nonitalic gold second line. The existing SVG project-journey animation is also placed below the hero CTAs, with distinct gradient IDs; the contact illustration remains. Each illustration starts independently when visible and respects reduced motion. No video file is required.
+
+## September 12: project carousel and one founder section
+
+The three founder ventures now share a visitor-controlled 3D showcase. `carousel.js` handles named project selectors, previous/next buttons, Left/Right/Home/End keys, horizontal swipe and click-to-focus side previews. The centered card retains its original external website link. A scroll-entry perspective effect responds only while the stage is visible; it does not rotate projects automatically or capture vertical scrolling. Reduced-motion users get a static active card with the same controls. Without JavaScript the three original links remain in a regular responsive grid.
+
+The stage reserves the tallest card's actual layout height so wrapped descriptions and mobile text do not collide with its controls. Hidden previews leave the tab sequence; the selection is announced politely. The obsolete project filters and content-promotion callout have been removed.
+
+“Who we are” and the team profiles are one section under `#about`, with `#team` preserved on the founder cards for existing links. Edwin's media/brand work and Brandon's development/systems work are explained directly, with the original portrait, ECC artwork, Instagram handles and venture URLs retained. Repeated logo framing, founder-number facts and the extra team heading are removed. The final CTA and a quieter repository link stay together.
+
+Local release gate: `python3 scripts/verify-business.py` (includes the nine public routes/assets/fragment checks and JavaScript syntax). `carousel.js` is included in the Pages artifact. Cache version: `project-carousel-1`.

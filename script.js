@@ -1,13 +1,3 @@
-const items = [...document.querySelectorAll('.project-card')];
-const filters = [...document.querySelectorAll('.filter-btn')];
-filters.forEach(button => button.addEventListener('click', () => {
-  filters.forEach(b => { b.classList.toggle('active', b === button); b.setAttribute('aria-pressed', String(b === button)); });
-  const filter = button.dataset.filter;
-  items.forEach(item => { item.hidden = filter !== 'all' && item.dataset.category !== filter; });
-  const count = items.filter(item => !item.hidden).length;
-  document.getElementById('project-count').textContent = filter === 'all' ? `Showing all ${count} projects.` : `Showing ${count} ${count === 1 ? 'project' : 'projects'}.`;
-}));
-
 const serviceSelect = document.getElementById('service');
 document.querySelectorAll('[data-service]').forEach(link => link.addEventListener('click', () => {
   serviceSelect.value = link.dataset.service;

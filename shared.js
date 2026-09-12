@@ -111,7 +111,7 @@ desktopHover.addEventListener('change', () => closeDropdowns());
 
 // Scroll-triggered reveals enhance visible content; links never wait on animation.
 const motionPreference = window.matchMedia('(prefers-reduced-motion: reduce)');
-const revealTargets = [...document.querySelectorAll('.section-heading,.about-content,.about-visual,.service-card,.project-card,.team-card,.content-callout,.contact-form,.detail-card,.footer-invitation')];
+const revealTargets = [...document.querySelectorAll('.section-heading,.about-content,.about-visual,.service-card,.team-card,.content-callout,.contact-form,.detail-card,.footer-invitation')];
 const runningReveals = new Set();
 if ('IntersectionObserver' in window) {
   const revealObserver = new IntersectionObserver(entries => {

@@ -49,6 +49,6 @@ for path in docs:
             raise ValueError(f'Broken local document link: {path.relative_to(ROOT)} -> {target}')
 
 run(sys.executable, 'scripts/verify-site.py')
-for source in ('shared.js', 'script.js', 'guide.js'):
+for source in ('shared.js', 'script.js', 'guide.js', 'carousel.js'):
     run('node', '--check', source)
 print(f'PASS: business/backend checks, {len(docs)} document link sets, deposit evidence and public-site regression checks.')
