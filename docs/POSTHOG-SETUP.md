@@ -1,6 +1,6 @@
 # PostHog: Black Star measurement plan
 
-Status: proposed setup, not installed or verified in project 605964. Prepared September 12, 2026. Brandon owns analytics and engineering; Edwin uses the content and service-interest results. Coordinate implementation with the agent building Resend.
+Status: integration code prepared; production credentials, event receipt, and dashboard remain unverified. Prepared September 12, 2026. Brandon owns analytics and engineering; Edwin uses the content and service-interest results.
 
 ## Start here
 
@@ -31,7 +31,7 @@ Never send names, email addresses, message text, free-form budgets, form field v
 
 Strip query strings and fragments from captured URLs and referrers, including automatically enriched SDK properties and initial/referring URLs. Use an explicit `before_send` sanitizer and inspect actual outgoing payloads. Avoid saving full URLs in custom properties. Any future campaign attribution needs its own bounded, allowlisted UTM policy; this minimal setup sacrifices some campaign detail for cleaner data.
 
-Explicit initial SDK settings: `autocapture: false`, `capture_pageview: true`, `capture_pageleave: false`, `disable_session_recording: true`, `disable_surveys: true`, `capture_exceptions: false`, `capture_heatmaps: false`, `capture_dead_clicks: false`, `person_profiles: 'never'`, `respect_dnt: true`. Confirm the current JavaScript SDK supports these options when implementing. Consent must gate initialization or capturing; configuration flags alone are not a working consent interface.
+Explicit initial SDK settings: `autocapture: false`, `capture_pageview: false`, `capture_pageleave: false`, `disable_session_recording: true`, `disable_surveys: true`, `capture_exceptions: false`, `capture_heatmaps: false`, `capture_dead_clicks: false`, `person_profiles: 'never'`, `respect_dnt: true`. The site emits one manual pageview after SDK initialization, avoiding history/hash duplicates. The SDK loads only after an affirmative analytics choice; visitors can change that choice in the footer.
 
 ## Handoff to the Resend agent
 

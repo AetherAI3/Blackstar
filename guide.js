@@ -40,6 +40,8 @@ function closeGuide(restoreFocus = true) {
 }
 function guideChoose(key) {
   const path = servicePaths[key];
+  try { window.BlackStarAnalytics?.track('service_selected', {service: key, source: 'guide'}); } catch {}
+  window.BlackStarContactSource = 'guide';
   guideResponse.textContent = path[1]; guideOptions.replaceChildren(); guideBack.hidden = false;
   guideButton('Tell us about your project ↗', () => {
     const select = document.getElementById('service');

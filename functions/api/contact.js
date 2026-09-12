@@ -1,7 +1,6 @@
 // Cloudflare Pages Function. Secrets are runtime bindings, never browser code.
 const SITE_HOST = 'blackstarentertainment.org';
 const INBOX = 'inquiries.blackstarent@gmail.com';
-const FROM = 'Black Star Entertainment <contact@blackstarentertainment.org>';
 const SERVICES = Object.freeze({
   '': 'General project', web: 'Websites & web apps', brand: 'Brand identity & design',
   video: 'Photography & video', social: 'Social content & management',
@@ -22,7 +21,9 @@ function json(status, body, extra = {}) {
 
 function configured(env) {
   return env.CONTACT_ENABLED === 'true' && Boolean(env.RESEND_API_KEY && env.TURNSTILE_SECRET_KEY &&
-    env.TURNSTILE_SITE_KEY && env.CONTACT_RATE_KV && env.CONTACT_RATE_SALT);
+    env.TURNSTILE_SITE_KEY && env.CONTACT_RATE_KV && env.CONTACT_RATE_SALT) &&
+    env.CONTACT_INBOX_EMAIL === INBOX && typeof env.CONTACT_FROM_EMAIL === 'string' &&
+    /^[a-z0-9._-]+@blackstarentertainment\.org$/i.test(env.CONTACT_FROM_EMAIL);
 }
 
 function allowedHost(request) {
@@ -83,14 +84,15 @@ function escapeHtml(value) {
   return value.replace(/[&<>"']/g, char => ({'&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'}[char]));
 }
 
-function messages(data) {
+function messages(data, env) {
   const service = SERVICES[data.service];
+  const from = `Black Star Entertainment <${env.CONTACT_FROM_EMAIL}>`;
   const first = data.name.split(/\s+/)[0];
   const owner = `New project inquiry\n\nName: ${data.name}\nEmail: ${data.email}\nService: ${service}\nBudget: ${data.budget || 'Not specified'}\nTiming: ${data.timeline || 'Not specified'}\n\nProject brief:\n${data.message}\n\nSubmission ID: ${data.submissionId}`;
   const thanks = `Hi ${first},\n\nThank you for contacting Black Star Entertainment. Your project inquiry has been submitted, and our team will review it. We will reply personally as soon as we can.\n\nIf you have an important detail to add, reply to this email.\n\nBrandon and Edwin\nBlack Star Entertainment\nhttps://blackstarentertainment.org/`;
   return [
-    {from: FROM, to: [INBOX], reply_to: data.email, subject: `New Black Star inquiry — ${service}`, text: owner},
-    {from: FROM, to: [data.email], reply_to: INBOX, subject: 'We received your Black Star inquiry',
+    {from, to: [INBOX], reply_to: data.email, subject: `New Black Star inquiry — ${service}`, text: owner},
+    {from, to: [data.email], reply_to: INBOX, subject: 'We received your Black Star inquiry',
       text: thanks,
       html: `<div style="font-family:Arial,sans-serif;max-width:560px;margin:auto;color:#222;line-height:1.6"><p style="color:#9b793c;letter-spacing:.12em;font-size:12px">BLACK STAR ENTERTAINMENT</p><h1 style="font-size:24px">Thank you for reaching out.</h1><p>Hi ${escapeHtml(first)},</p><p>Your project inquiry has been submitted, and our team will review it. We will reply personally as soon as we can.</p><p>If you have an important detail to add, reply to this email.</p><p>Brandon and Edwin<br>Black Star Entertainment</p><p><a href="https://blackstarentertainment.org/">blackstarentertainment.org</a></p></div>`}
   ];
@@ -112,16 +114,19 @@ export async function onRequestPost({request, env}) {
   try {
     if (!await verifyChallenge(env, data.challengeToken, ip)) return json(403, {code: 'VERIFICATION_FAILED'});
     if (!await rateLimit(env, ip)) return json(429, {code: 'RATE_LIMITED'}, {'Retry-After': '600'});
-    const response = await fetch('https://api.resend.com/emails/batch', {
+    let response;
+    try { response = await fetch('https://api.resend.com/emails/batch', {
       method: 'POST',
       headers: {'Authorization': `Bearer ${env.RESEND_API_KEY}`, 'Content-Type': 'application/json',
         'Idempotency-Key': `blackstar-contact/${data.submissionId}`},
-      body: JSON.stringify(messages(data))
-    });
+      body: JSON.stringify(messages(data, env))
+    }); } catch { return json(504, {code: 'SUBMISSION_STATUS_UNKNOWN'}); }
+    if (response.status >= 500) return json(504, {code: 'SUBMISSION_STATUS_UNKNOWN'});
     if (!response.ok) return json(502, {code: 'DELIVERY_UNAVAILABLE'});
-    const result = await response.json();
+    let result;
+    try { result = await response.json(); } catch { return json(504, {code: 'SUBMISSION_STATUS_UNKNOWN'}); }
     if (!Array.isArray(result.data) || result.data.length !== 2 || result.data.some(item => !item.id))
-      return json(502, {code: 'DELIVERY_UNAVAILABLE'});
+      return json(504, {code: 'SUBMISSION_STATUS_UNKNOWN'});
     return json(202, {ok: true});
   } catch {
     return json(503, {code: 'DELIVERY_UNAVAILABLE'});

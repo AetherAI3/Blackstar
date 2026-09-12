@@ -15,6 +15,25 @@ let directDelivery = false;
 let challengeWidget;
 let pendingPayload;
 let pendingId;
+let inFlight = false;
+let contactStarted = false;
+const acceptedIds = new Set();
+function trackInquiry(event, properties) {
+  try { window.BlackStarAnalytics?.track(event, properties); } catch { /* Analytics never controls delivery. */ }
+}
+function selectedService() {
+  return ['web', 'brand', 'video', 'social', 'automation', 'marketing', 'multiple'].includes(serviceSelect.value) ? serviceSelect.value : 'unspecified';
+}
+form.addEventListener('input', event => {
+  if (contactStarted || !['name', 'email', 'message'].includes(event.target.id) || !event.target.value.trim()) return;
+  contactStarted = true;
+  trackInquiry('contact_started', {service: selectedService(), source: window.BlackStarContactSource || 'direct'});
+});
+form.addEventListener('change', event => {
+  if (contactStarted || !['service', 'budget', 'timeline'].includes(event.target.id) || !event.target.value) return;
+  contactStarted = true;
+  trackInquiry('contact_started', {service: selectedService(), source: window.BlackStarContactSource || 'direct'});
+});
 function updateMessageCount() {
   document.getElementById('message-count').textContent = `${messageField.value.length.toLocaleString()} / 1,800`;
 }
@@ -40,6 +59,7 @@ function contactPayload() {
 }
 form.addEventListener('submit', async event => {
   event.preventDefault();
+  if (inFlight) return;
   if (!form.reportValidity()) return;
   if (!directDelivery) return draftInquiry();
   const token = window.turnstile?.getResponse(challengeWidget);
@@ -54,6 +74,8 @@ form.addEventListener('submit', async event => {
     pendingPayload = fingerprint;
   }
   submitButton.disabled = true;
+  inFlight = true;
+  form.setAttribute('aria-busy', 'true');
   formStatus.textContent = 'Sending your inquiry…';
   try {
     const response = await fetch('/api/contact', {method: 'POST',
@@ -61,20 +83,34 @@ form.addEventListener('submit', async event => {
       body: JSON.stringify({...payload, submissionId: pendingId, challengeToken: token}),
       signal: AbortSignal.timeout(15000)});
     if (response.status === 202) {
+      if (!acceptedIds.has(pendingId)) {
+        acceptedIds.add(pendingId);
+        trackInquiry('inquiry_accepted', {service: selectedService()});
+      }
       form.reset(); updateMessageCount(); pendingId = pendingPayload = undefined;
-      formStatus.textContent = 'Thank you. Your inquiry was accepted for delivery, and a confirmation email is being sent. Our team will reply personally.';
+      formStatus.textContent = 'Thank you. Our email service accepted your inquiry and confirmation for processing. Delivery is not yet confirmed; our team will reply personally.';
     } else if (response.status === 403) {
+      trackInquiry('inquiry_failed', {error_category: 'verification'});
       formStatus.textContent = 'Verification expired or failed. Please try again; your project details are still here.';
     } else if (response.status === 429) {
+      trackInquiry('inquiry_failed', {error_category: 'rate_limit'});
       formStatus.textContent = 'Too many attempts right now. Please try again in ten minutes or email us directly.';
+    } else if (response.status === 504) {
+      trackInquiry('inquiry_status_unknown');
+      formStatus.textContent = 'The email service did not confirm the outcome. Your details are still here; retrying will use the same inquiry reference.';
     } else {
+      trackInquiry('inquiry_failed', {error_category: response.status === 400 || response.status === 413 ? 'validation' : response.status >= 500 ? 'provider_unavailable' : 'unexpected'});
       formStatus.textContent = 'We could not confirm delivery. Your details are still here. Try again, copy the brief, or email us directly.';
     }
   } catch {
+    trackInquiry('inquiry_status_unknown');
     formStatus.textContent = 'The connection was interrupted, so delivery is uncertain. Your details are still here; retry or email us directly.';
   } finally {
     window.turnstile?.reset(challengeWidget);
     submitButton.disabled = false;
+    inFlight = false;
+    form.removeAttribute('aria-busy');
+    formStatus.focus();
   }
 });
 document.getElementById('copy-brief').addEventListener('click', async () => {

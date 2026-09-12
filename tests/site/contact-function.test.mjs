@@ -12,6 +12,7 @@ function environment() {
   const records = new Map();
   return {CONTACT_ENABLED: 'true', RESEND_API_KEY: 'test-only-key', TURNSTILE_SECRET_KEY: 'test-secret',
     TURNSTILE_SITE_KEY: 'test-site', CONTACT_RATE_SALT: 'test-only-salt',
+    CONTACT_INBOX_EMAIL: 'inquiries.blackstarent@gmail.com', CONTACT_FROM_EMAIL: 'contact@blackstarentertainment.org',
     CONTACT_RATE_KV: {get: async key => records.get(key), put: async (key, value) => records.set(key, value)}};
 }
 function context(data = valid, env = environment(), origin = host, url = `${host}/api/contact`) {
@@ -94,6 +95,20 @@ test('provider failure is not shown as a submitted inquiry', async () => {
   try {
     assert.equal((await onRequestPost(context())).status, 502);
   } finally { mock.restore(); }
+});
+
+test('provider timeout is an unknown outcome that keeps the same idempotency key', async () => {
+  const mock = mockProvider();
+  const original = globalThis.fetch;
+  globalThis.fetch = async (url, options) => {
+    if (url.includes('siteverify')) return original(url, options);
+    throw new Error('simulated timeout');
+  };
+  try {
+    const result = await onRequestPost(context());
+    assert.equal(result.status, 504);
+    assert.deepEqual(await result.json(), {code: 'SUBMISSION_STATUS_UNKNOWN'});
+  } finally { globalThis.fetch = original; mock.restore(); }
 });
 
 test('rate limit stops further batches in the same window', async () => {

@@ -278,3 +278,5 @@ summary:focus-visible{outline:2px solid var(--gold);outline-offset:5px}
 }
 .contact-honeypot{position:absolute!important;left:-10000px!important;width:1px!important;height:1px!important;overflow:hidden!important}
 .contact-challenge{margin:16px 0;min-height:65px}
+.analytics-consent{position:fixed;z-index:1000;left:20px;right:20px;bottom:20px;max-width:650px;margin:auto;padding:22px 24px;border:1px solid #d6ba7860;border-radius:18px;background:#171419;color:#f2edf2;box-shadow:0 18px 48px #0009}
+.analytics-consent[hidden]{display:none}.analytics-consent p{font-size:14px;line-height:1.6;margin:0 0 16px}.analytics-consent>div{display:flex;flex-wrap:wrap;gap:10px}.analytics-consent button{min-height:44px}.analytics-preferences{background:none;border:0;color:#c8bbcf;text-decoration:underline;text-underline-offset:4px;cursor:pointer;min-height:44px;font:inherit}.analytics-preferences:focus-visible,.analytics-consent button:focus-visible{outline:2px solid #e8d3a0;outline-offset:3px}
