@@ -45,13 +45,13 @@ Explicit initial SDK settings: `autocapture: false`, `capture_pageview: false`, 
 
 ## One dashboard: Website → inquiry
 
-Create these views after test events arrive:
+The account was not authenticated during implementation, so this dashboard has **not** been created. After the first verified production events arrive in project 605964, use **Dashboards → New dashboard → Blank dashboard**, name it **Website → inquiry**, then use **+ New insight → Save & add to dashboard** for each tile below. Set each insight's event-property filter `environment = production` where that property exists (`$pageview`); all custom events are already gated to the production host. Use a 30-day date range and daily interval initially.
 
-1. **Traffic:** visitors/pageviews by landing page, referrer domain, and device category. Referrer stripping limits attribution; do not confuse direct/unknown traffic with a proven direct visit.
-2. **Interest:** `service_selected` by service and source. This counts selections, not purchases or necessarily unique people.
-3. **Contact funnel:** `$pageview` → `contact_started` → `inquiry_accepted`, initially within one day. Do not require a service click: people can contact directly from the hero.
-4. **Mobile comparison:** break that funnel down by device category to find friction.
-5. **Submission health:** failures by safe category, with unknown outcomes shown separately. Compare acceptance totals with backend records rather than treating browser totals as the ledger.
+1. **Traffic by landing page:** Trends insight, `$pageview`, count unique users and total events, breakdown by event property `route`. Add separate `$pageview` trends broken down by `referrer_domain` and `$device_type`. Referrer stripping limits attribution; do not confuse direct/unknown traffic with a proven direct visit.
+2. **Service interest:** Trends insight, `service_selected`, total events, breakdown by `service`; add a second tile broken down by `source`. This counts selections, not purchases or necessarily unique people.
+3. **Contact funnel:** Funnels insight with ordered steps `$pageview` → `contact_started` → `inquiry_accepted`, conversion window one day. Do not require a service click: people can contact directly from the hero.
+4. **Mobile comparison:** Duplicate that funnel and break down by event property `$device_type` to compare mobile with desktop. If PostHog does not surface the breakdown on the funnel, use the same three steps with a `$device_type = Mobile` filter and compare to Desktop in a second tile.
+5. **Submission health:** Trends insight with `inquiry_failed` broken down by `error_category`, plus separate series for `inquiry_status_unknown` and `inquiry_accepted`. Compare acceptance totals with backend records rather than treating browser totals as the ledger.
 
 Check weekly: which pages attract useful visits, which services get interest, and where mobile visitors stop. Fix one clear problem at a time; low traffic is not enough evidence to declare a design winner. PostHog does not prove SEO rankings or AI-search visibility; use Search Console and Bing Webmaster Tools alongside it.
 
