@@ -272,3 +272,10 @@ summary:focus-visible{outline:2px solid var(--gold);outline-offset:5px}
 .carousel-ready #port-aether-sites[data-position=current]{box-shadow:0 26px 70px #0009,0 0 70px #b9e86c12}
 @media(min-width:681px) and (max-width:960px){.carousel-controls{gap:12px}.carousel-choices button{padding-inline:10px;font-size:11px}}
 @media(max-width:680px){.carousel-choices button{flex:1 1 28%;padding-inline:7px}.project-carousel .sites-visual>img{padding:40px 8px 25px}}
+
+/* Current Aether social preview: full-width artwork below the browser bar. */
+#port-aether-ai .aether-visual{aspect-ratio:auto;min-height:0;background:#050b14}
+#port-aether-ai .aether-visual>img{display:block;width:100%;height:auto;aspect-ratio:1200/630;object-fit:cover;padding:0;margin-top:35px}
+#port-aether-ai .aether-visual::after{display:none}
+#port-aether-ai .visual-label{display:none}
+#port-aether-ai:hover .aether-visual>img{transform:none}
