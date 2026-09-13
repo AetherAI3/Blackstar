@@ -138,7 +138,7 @@ summary:focus-visible{outline:2px solid var(--gold);outline-offset:5px}
 #portfolio{overflow:hidden;border:0;background:radial-gradient(ellipse at 50% 74%,#d6ba780a,transparent 58%),linear-gradient(#09090be8,#0a0a0b99),url('assets/glow-floor.svg') center bottom/cover}
 #portfolio .section-heading{margin-bottom:28px}
 .project-carousel{position:relative}
-.project-carousel .portfolio-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}
+.project-carousel .portfolio-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:22px}
 .project-carousel .project-card{display:block;grid-column:auto;border-radius:28px;background:linear-gradient(150deg,#1b191e,#0e0e10 70%) padding-box,linear-gradient(140deg,#dcc38c52,#ffffff12 40%,#d6ba7820) border-box;box-shadow:0 24px 65px #0007}
 .project-carousel .project-visual{aspect-ratio:1.95;min-height:0;height:auto;border-radius:26px 26px 0 0}
 .project-carousel .project-copy{padding:25px 30px 30px}
@@ -253,3 +253,13 @@ summary:focus-visible{outline:2px solid var(--gold);outline-offset:5px}
 #services .service-card:focus-within::before,#services .service-card:focus-within::after{opacity:1}
 @media(hover:hover) and (pointer:fine){#services .service-card:hover{border-color:rgb(var(--card-glow) / .38);box-shadow:0 18px 45px #0003,0 0 30px rgb(var(--card-glow) / .035)}#services .service-card:hover::before,#services .service-card:hover::after{opacity:1}}
 @media(prefers-reduced-motion:reduce){#services .service-card::before,#services .service-card::after{background-position:center;transition:none}}
+
+/* Jane Labs joins the showcase; only immediate neighbors are visible. */
+.carousel-ready .project-card[data-position=back]{z-index:0;opacity:0;visibility:hidden;pointer-events:none;transform:translateX(-50%) translateZ(-260px) scale(.8)}
+.project-carousel .jane-visual{background:radial-gradient(ellipse at 50% 80%,#173c24,#07110c 75%)}
+.project-carousel .jane-visual>img{object-fit:contain;padding:43px 14px 28px}
+#port-jane-labs{background:linear-gradient(150deg,#142019,#0d110f 75%) padding-box,linear-gradient(140deg,#77d88955,#ffffff12 45%,#6eb98b22) border-box}
+#port-jane-labs .project-kicker,#port-jane-labs .project-copy h3 span,#port-jane-labs .project-visit{color:#a4d9ad}
+.carousel-ready #port-jane-labs[data-position=current]{box-shadow:0 26px 70px #0009,0 0 70px #65ba7818}
+@media(max-width:680px){.carousel-choices{flex-wrap:wrap;border-radius:24px;max-width:390px}.carousel-choices button{flex:1 1 42%}.project-carousel .jane-visual>img{padding:40px 8px 26px}}
+@media print{.carousel-ready .project-card[data-position=back]{position:static;transform:none!important;opacity:1!important;visibility:visible!important}}

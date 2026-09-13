@@ -18,7 +18,7 @@
     if (previous === document.activeElement && previous !== cards[current]) choices[current].focus();
     cards.forEach((card, i) => {
       const slot = (i - current + cards.length) % cards.length;
-      card.dataset.position = slot === 0 ? 'current' : slot === 1 ? 'next' : 'previous';
+      card.dataset.position = slot === 0 ? 'current' : slot === 1 ? 'next' : slot === cards.length - 1 ? 'previous' : 'back';
       card.tabIndex = i === current ? 0 : -1;
       card.setAttribute('aria-hidden', String(i !== current));
       choices[i].setAttribute('aria-pressed', String(i === current));
