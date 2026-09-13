@@ -263,3 +263,12 @@ summary:focus-visible{outline:2px solid var(--gold);outline-offset:5px}
 .carousel-ready #port-jane-labs[data-position=current]{box-shadow:0 26px 70px #0009,0 0 70px #65ba7818}
 @media(max-width:680px){.carousel-choices{flex-wrap:wrap;border-radius:24px;max-width:390px}.carousel-choices button{flex:1 1 42%}.project-carousel .jane-visual>img{padding:40px 8px 26px}}
 @media print{.carousel-ready .project-card[data-position=back]{position:static;transform:none!important;opacity:1!important;visibility:visible!important}}
+
+/* Aether Sites: lime studio artwork within the dark showcase. */
+.project-carousel .sites-visual{background:radial-gradient(ellipse at 65% 80%,#29351b,#101110 75%)}
+.project-carousel .sites-visual>img{object-fit:contain;padding:43px 14px 27px}
+#port-aether-sites{background:linear-gradient(150deg,#1b2117,#0e110d 75%) padding-box,linear-gradient(140deg,#c9fd6150,#ffffff12 45%,#8fb04725) border-box}
+#port-aether-sites .project-kicker,#port-aether-sites .project-copy h3 span,#port-aether-sites .project-visit{color:#c9e99a}
+.carousel-ready #port-aether-sites[data-position=current]{box-shadow:0 26px 70px #0009,0 0 70px #b9e86c12}
+@media(min-width:681px) and (max-width:960px){.carousel-controls{gap:12px}.carousel-choices button{padding-inline:10px;font-size:11px}}
+@media(max-width:680px){.carousel-choices button{flex:1 1 28%;padding-inline:7px}.project-carousel .sites-visual>img{padding:40px 8px 25px}}
